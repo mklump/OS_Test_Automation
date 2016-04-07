@@ -1,8 +1,3 @@
-set SKUDOMAIN=REDMOND
-set SKUUSER=igloolab
-set SKUPASS=Jan-11polaris
-set WTTCONTROLLER=B11BGITWTTCT25
-
 if %SystemDrive%==C: (goto testos)
 if %SystemDrive%==D: (goto safeos)
 

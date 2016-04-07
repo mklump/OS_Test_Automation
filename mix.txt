@@ -8,10 +8,10 @@ set /p MACHINENAME="Please enter machine name: -> "
 set /p IGLOOLAB_PASSWORD="Please enter REDMOND\igloolab password: -> "
 
 echo Safe OS ASI2.2 setup command set
-asi.exe -install -MACHINENAME DEPLAB08_S -WTTCD -SKU ENTERPRISE -LANGUAGE EN-US -PLATFORM amd64 -QUALITY TEST -LAB MAIN -PRODUCT VISTA -TYPE FRE -AUTOLOGON Administrator -USER Administrator "" Administrators -DISPLAY 1024 768 32 72 -JOINDOMAIN igloolab REDMOND Jan-11polaris -FORMATDISK D: -INSTALLTO D: -SWAPACTIVE D: -WTTINSTALLCLIENT -WTTCONTROLLER B11BGITWTTCT25 -DISKPART "Select disk 0, clean, create partition primary size=60000, assign letter=C, create partition primary size=40000, assign letter=D, create partition primary, assign letter=E, exit" -POSTINSTALL \\wexfs\USERS\a-maklum\edrive\OSPostInstall.cmd
+asi.exe -install -MACHINENAME DEPLAB08_S -WTTCD -SKU ENTERPRISE -LANGUAGE EN-US -PLATFORM amd64 -QUALITY TEST -LAB MAIN -PRODUCT VISTA -TYPE FRE -AUTOLOGON Administrator -USER Administrator "" Administrators -DISPLAY 1024 768 32 72 -JOINDOMAIN igloolab REDMOND Jan-11polaris -FORMATDISK D: -INSTALLTO D: -SWAPACTIVE D: -WTTINSTALLCLIENT -WTTCONTROLLER B11BGITWTTCT25 -DISKPART "Select disk 0, clean, create partition primary size=60000, assign letter=C, create partition primary size=40000, assign letter=D, create partition primary, assign letter=E, exit" -POSTINSTALL \\wexfs\USERS\\edrive\OSPostInstall.cmd
 
 Test OS ASI2.2 setup command set -> 
-asi.exe -REGISTER AUTHENTICATE -SKU Starter -LANGUAGE ps-ps -PLATFORM x86 -LAB WINMAIN -PRODUCT WIN7 -BLOCK SERVICEPACK -TYPE FRE -MACHINENAME [Current_no_s] -USER Tester Admin#1 Administrators -AUTOLOGON Tester -USER Administrator Admin#1 Administrators -REMOTEDESKTOP -DISPLAY 1024 768 32 72 -FORMATDISK C: -INSTALLTO C: -SWAPACTIVE C: -ADDDRIVER \\wexfs\USERS\a-maklum\edrive\Drivers\Dell745TestDesktopPCs
+asi.exe -REGISTER AUTHENTICATE -SKU Starter -LANGUAGE ps-ps -PLATFORM x86 -LAB WINMAIN -PRODUCT WIN7 -BLOCK SERVICEPACK -TYPE FRE -MACHINENAME [Current_no_s] -USER Tester Admin#1 Administrators -AUTOLOGON Tester -USER Administrator Admin#1 Administrators -REMOTEDESKTOP -DISPLAY 1024 768 32 72 -FORMATDISK C: -INSTALLTO C: -SWAPACTIVE C: -ADDDRIVER \\wexfs\USERS\\edrive\Drivers\Dell745TestDesktopPCs
 asi.exe -REBOOT D:
 asi.exe -install -WTTINSTALLCLIENT -WTTCONTROLLER B11BGITWTTCT25
 

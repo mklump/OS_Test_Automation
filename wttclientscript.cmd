@@ -1,9 +1,3 @@
-set SKUDOMAIN=REDMOND
-set SKUUSER=igloolab
-set SKUPASS=Jan-11polaris
-set WTTCONTROLLER=B11BGITWTTCT25
-REM set TESTBINROOT=\\wexfs\users\a-maklum\amd64fretest\bin
-
 echo Install ApVerify... new untested.
 net use j: \\ae-share\tools /user:%SKUDOMAIN%\%SKUUSER% %SKUPASS%
 call j:\release\AppVerifier\latest\avrfinstall.cmd
