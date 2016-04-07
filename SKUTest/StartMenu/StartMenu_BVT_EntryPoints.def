@@ -1,0 +1,5 @@
+LIBRARY "StartMenu_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyStartMenu_EntryPoint

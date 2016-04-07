@@ -1,0 +1,20 @@
+;This is a sample suite file.  For more information, please read the MASH
+;documentation at http://wst/toolbox/mash/default.htm
+
+;For questions, e-mail edwards
+
+[mash]
+repeat=0
+
+
+[SuiteProperties]
+TestName=WindowsMediaConnect_BVT_EntryPoints
+
+[Modules]
+module1=WindowsMediaConnect_BVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,VerifyWindowsMediaConnect
+[BVT]
+
+[Scratch Pad]

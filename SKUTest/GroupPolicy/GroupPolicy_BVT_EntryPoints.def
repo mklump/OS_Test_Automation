@@ -1,0 +1,5 @@
+LIBRARY "GroupPolicy_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        GroupPolicy_BVT_EntryPoints

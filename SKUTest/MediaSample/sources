@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=MediaSample_BVT_EntryPoints
+               
+MISCFILES=         MediaSample_BVT_EntryPoints.swt  \
+
+SOURCES     = MediaSample_BVT_EntryPoints.cpp      

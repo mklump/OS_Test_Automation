@@ -1,0 +1,8 @@
+!include ..\sources.inc
+TARGETNAME=DWM_BVT_EntryPoints
+                  
+
+MISCFILES=         .\DWM_BVT_EntryPoints.swt  \
+
+SOURCES     = DWM_BVT_EntryPoints.cpp	\
+			  DWM_TestVisuals_BVT_EntryPoints.cpp

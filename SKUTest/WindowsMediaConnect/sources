@@ -1,0 +1,9 @@
+!include ..\sources.inc
+
+TARGETNAME=WindowsMediaConnect_BVT_EntryPoints
+
+MISCFILES=         .\WindowsMediaConnect_BVT_EntryPoints.swt  \
+		   .\wmpmenuOn.reg	\
+		   .\wmpmenuOff.reg	\
+
+SOURCES     = WindowsMediaConnect_BVT_EntryPoints.cpp      

@@ -1,0 +1,18 @@
+[SuiteProperties]
+TestName=InternetConnectionSharing_BVT_EntryPoints
+
+LocalLogName=Mash_II_TestLog.Log
+
+[Modules]
+module1=E:\UX_Checkin\testsrc\shelltest\testareas\SKUTest\InternetConnectionSharing_BVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,ICSViewStatusEntryPoint
+function2=1,ICSManageNetworkConnectionsEntryPoint
+
+[BVT]
+
+[Quality]
+
+[Scratch Pad]
+

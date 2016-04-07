@@ -1,0 +1,5 @@
+LIBRARY "MobilityCenter_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        MobilityCenterEntryPoints

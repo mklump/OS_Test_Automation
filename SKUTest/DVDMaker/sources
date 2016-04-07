@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=DVDMaker_BVT_EntryPoints
+
+MISCFILES=         .\DVDMaker_BVT_EntryPoints.swt  \
+
+SOURCES     = DVDMaker_BVT_EntryPoints.cpp      

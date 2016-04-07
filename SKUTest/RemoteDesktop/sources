@@ -1,0 +1,10 @@
+!include ..\sources.inc
+
+TARGETNAME=RemoteDesktop_BVT_EntryPoints
+
+MISCFILES=         .\RemoteDesktop_BVT_EntryPoints.swt  \
+
+SOURCES     = RemoteDesktop_BVT_EntryPoints.cpp                \
+              
+
+

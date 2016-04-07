@@ -1,0 +1,5 @@
+LIBRARY "AdvancedPhoto_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        AdvancedPhotoThemes

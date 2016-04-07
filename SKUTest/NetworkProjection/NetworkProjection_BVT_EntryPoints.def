@@ -1,0 +1,5 @@
+LIBRARY "NetworkProjection_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        NetworkProjection_BVT_EntryPoints

@@ -1,0 +1,5 @@
+LIBRARY "FaxAndScan_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyFaxAndScan_StartMenuEntryPoint

@@ -1,0 +1,10 @@
+!include ..\sources.inc
+
+TARGETNAME=BitLocker_BVT_EntryPoints
+
+MISCFILES=         .\BitLocker_BVT_EntryPoints.swt  \
+
+SOURCES     = BitLocker_BVT_EntryPoints.cpp                \
+              
+
+

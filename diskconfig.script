@@ -1,0 +1,12 @@
+SELECT DISK 0
+CLEAN
+create partition primary size=60000
+assign letter=C
+assign volumealias=TestOS
+create partition primary size=30000
+assign letter=D
+assign volumealias=SafeOS
+create partition primary size=*
+assign letter=E
+active
+assign volumealias=BootVOL, exit

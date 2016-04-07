@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=InternetConnectionSharing_BVT_EntryPoints
+
+MISCFILES=         .\InternetConnectionSharing_BVT_Entrypoints.swt  \
+
+SOURCES     = InternetConnectionSharing_BVT_Entrypoints.cpp

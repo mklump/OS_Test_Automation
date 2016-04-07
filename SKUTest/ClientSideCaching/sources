@@ -1,0 +1,8 @@
+!include ..\sources.inc
+
+TARGETNAME=ClientSideCaching_BVT_EntryPoints
+
+MISCFILES=    	.\ClientSideCaching_BVT_EntryPoints.swt  \
+		
+
+SOURCES     = ClientSideCaching_BVT_EntryPoints.cpp      

@@ -1,0 +1,11 @@
+!include ..\sources.inc
+
+TARGETNAME=DomainJoin_BVT_EntryPoints
+                  
+
+MISCFILES=         .\DomainJoin_BVT_EntryPoints.swt  \
+
+SOURCES     = DomainJoin_BVT_EntryPoints.cpp                \
+              
+
+

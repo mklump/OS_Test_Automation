@@ -25,16 +25,16 @@ type:fre
 
 /osconfig 
 # Use this product lab key for Server 2003 
-productkey:MMPQK-9BTK2-G8FFP-3DFW3-4V248 
+productkey:MMPQK-9BTK2-G8FFP-3DFW3
 # Use this product site key for Vista Enterprise VL 
-#productkey:VKK3X-68KWM-X2YGT-QR4M6-4BWMV 
+#productkey:VKK3X-68KWM-X2YGT-QR4M6 
 adduser:Administrator,Administrators,Admin#1 
 Autologon:Administrator 
 display:1024,768,32,72 
 asisetup:true 
 remotedesktop:true 
 machinename:%COMPUTERNAME% 
-joindomain:REDMOND,igloolab,%IGLOOLAB_PASSWORD%
+joindomain:REDMOND
 
 # Specifies how to partition the disk.  Partition 1 is 60000 MB.  Partition 2 is 30000 MB. Partition 3 is max size.
 /diskconfig 

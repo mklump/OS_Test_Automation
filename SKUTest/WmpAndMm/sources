@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=WmpAndMm_BVT_EntryPoints
+
+MISCFILES=         WmpAndMm_BVT_EntryPoints.swt  \
+
+SOURCES     = WmpAndMm_BVT_EntryPoints.cpp      

@@ -1,0 +1,21 @@
+;This is a sample suite file.  For more information, please read the MASH
+;documentation at http://wst/toolbox/mash/default.htm
+
+;For questions, e-mail edwards
+
+[mash]
+repeat=0
+
+
+[SuiteProperties]
+TestName=MeetingSpace_FVT_EntryPoints
+
+[Modules]
+module1=MeetingSpace_FVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,VerifyCreatingNewMeeting
+
+[BVT]
+
+[Scratch Pad]

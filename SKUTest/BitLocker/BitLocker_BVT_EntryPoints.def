@@ -1,0 +1,5 @@
+LIBRARY "BitLocker_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        BitLocker_BVT_EntryPoints

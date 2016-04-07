@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=RAM_BVT_EntryPoints
+
+MISCFILES  = RAM_BVT_EntryPoints.swt  \
+
+SOURCES    = RAM_BVT_EntryPoints.cpp      

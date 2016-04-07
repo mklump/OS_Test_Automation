@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=StartMenu_BVT_EntryPoints
+
+MISCFILES=         .\StartMenu_BVT_EntryPoints.swt  \
+
+SOURCES     = StartMenu_BVT_EntryPoints.cpp      

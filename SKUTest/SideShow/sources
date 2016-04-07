@@ -1,0 +1,9 @@
+!include ..\sources.inc
+
+TARGETNAME=SideShow_BVT_EntryPoints
+
+MISCFILES = .\SideShow_BVT_EntryPoints.swt    \
+	    .\startAuxDisplay.cmd	\
+	    .\stopAuxDisplay.cmd	\
+
+SOURCES = SideShow_BVT_EntryPoints.cpp    \

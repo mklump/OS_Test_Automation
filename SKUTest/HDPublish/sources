@@ -1,0 +1,8 @@
+!include ..\sources.inc
+
+TARGETNAME = HDPublish_BVT_EntryPoints
+MISCFILES = HDPublish_BVT_EntryPoints.swt
+SOURCES = HDPublish_BVT_EntryPoints.cpp
+              
+
+

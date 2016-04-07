@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=MakeDVDMovie_BVT_EntryPoints
+
+MISCFILES=         .\MakeDVDMovie_BVT_EntryPoints.swt  \
+
+SOURCES     = MakeDVDMovie_BVT_EntryPoints.cpp      

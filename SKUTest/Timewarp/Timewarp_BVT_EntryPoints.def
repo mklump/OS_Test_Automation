@@ -1,0 +1,5 @@
+LIBRARY "Timewarp_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        Timewarp_EntryPoint

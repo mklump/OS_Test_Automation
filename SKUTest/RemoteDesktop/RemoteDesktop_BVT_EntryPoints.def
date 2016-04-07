@@ -1,0 +1,5 @@
+LIBRARY "RemoteDesktop_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        RemoteDesktop_BVT_EntryPoints

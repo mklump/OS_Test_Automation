@@ -1,0 +1,24 @@
+;8/9/2007 a-jomul: Fixed to use the entry points in the current DLL
+;
+
+;
+
+[mash]
+repeat=0
+
+
+[SuiteProperties]
+TestName=Branding_BVT_EntryPoints
+
+[Modules]
+module1=Branding_BVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,BrandingWC_BVT_EntryPoints
+function2=1,BrandingSysDM_BVT_EntryPoints
+function3=1,VerifyLogonBranding_BVTEntryPoint
+function4=1,BrandingAboutWindows_BVT_EntryPoints 
+
+[BVT]
+
+[Scratch Pad]

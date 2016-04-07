@@ -1,0 +1,12 @@
+
+#
+# auto-generated from source depot info
+#
+
+FILE *
+$TAG ENGR
+$Module:  shelltest_testareas_skutest_branding
+$Owner:   melkong
+$Keywords: 
+$ENDTAG
+

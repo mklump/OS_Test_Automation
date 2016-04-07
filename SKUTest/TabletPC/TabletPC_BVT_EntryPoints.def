@@ -1,0 +1,5 @@
+LIBRARY "TabletPC_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyTabletPCComponents_EntryPoint

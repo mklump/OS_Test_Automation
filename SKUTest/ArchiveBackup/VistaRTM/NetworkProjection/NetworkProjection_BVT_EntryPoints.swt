@@ -1,0 +1,20 @@
+;This is a sample suite file.  For more information, please read the MASH
+;documentation at http://wst/toolbox/mash/default.htm
+
+;For questions, e-mail edwards
+
+[mash]
+repeat=0
+
+[SuiteProperties]
+TestName=NetworkProjection_BVT_EntryPoints
+
+[Modules]
+module1=E:\UX_Checkin\testsrc\shelltest\testareas\SKUTest\NetworkProjection_BVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,NetworkProjection_BVT_EntryPoints
+
+[BVT]
+
+[Scratch Pad]

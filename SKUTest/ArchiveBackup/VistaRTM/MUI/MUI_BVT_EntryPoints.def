@@ -1,0 +1,5 @@
+LIBRARY "MUI_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        MUI_BVT_EntryPoints

@@ -1,0 +1,12 @@
+LIBRARY "SUA_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        SUA_WindowsFeature
+	NFS_WindowsFeature
+	Extras_WindowsFeature
+	Fax_Scan_WindowsFeature
+	PremiumGames_WindowsFeature
+	ActiveX_WindowsFeature
+	Meetingspace_WindowsFeature
+	Tablet_WindowsFeature

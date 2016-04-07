@@ -1,0 +1,20 @@
+LIBRARY "WelcomeCenter_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        WelcomeCenter_Comp_Details_EntryPoint
+        WelcomeCenter_Add_User_EntryPoint
+        WelcomeCenter_Easy_Transfer_EntryPoint
+        WelcomeCenter_Connect_Internet_EntryPoint
+        WelcomeCenter_Ultimate_Extras_EntryPoint
+        WelcomeCenter_Whats_New_EntryPoint
+        WelcomeCenter_Personalize_EntryPoint
+        WelcomeCenter_Register_Windows_EntryPoint
+        WelcomeCenter_Add_Printer_EntryPoint
+        WelcomeCenter_MCE_EntryPoint
+        WelcomeCenter_Demos_EntryPoint
+        WelcomeCenter_Basics_EntryPoint
+        WelcomeCenter_Ease_Access_EntryPoint
+        WelcomeCenter_Backup_Restore_EntryPoint
+        WelcomeCenter_Control_Panel_EntryPoint
+        WelcomeCenter_Anytime_Upgrade_EntryPoint

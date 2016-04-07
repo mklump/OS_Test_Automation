@@ -1,0 +1,27 @@
+;This is a sample suite file.  For more information, please read the MASH
+;documentation at http://wst/toolbox/mash/default.htm
+
+;For questions, e-mail edwards
+
+[mash]
+repeat=0
+
+
+[SuiteProperties]
+TestName=WindowsFeatures_BVT
+
+[Modules]
+module1=WindowsFeatures_BVT.dll
+
+[Unit Test]
+function1=1,SUA_WindowsFeature
+function2=1,NFS_WindowsFeature
+function3=1,Extras_WindowsFeature
+function4=1,Fax_Scan_WindowsFeature
+function5=1,PremiumGames_WindowsFeature
+function6=1,Tablet_WindowsFeature
+function7=1,Meetingspace_WindowsFeature
+function8=1,ActiveX_WindowsFeature
+[BVT]
+
+[Scratch Pad]

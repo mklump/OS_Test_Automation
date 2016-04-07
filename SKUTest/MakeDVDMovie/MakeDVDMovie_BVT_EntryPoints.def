@@ -1,0 +1,5 @@
+LIBRARY "MakeDVDMovie_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyMakeDVDMovie

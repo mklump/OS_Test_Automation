@@ -1,0 +1,1 @@
+CreateFilesWithRetry(c:\enlist\win7scsetest.public.x86chk\lock) retry:0 Win32Error:0x20; try just deleting the file and if that fails use tlist or filemon or openfiles to find who has the file open

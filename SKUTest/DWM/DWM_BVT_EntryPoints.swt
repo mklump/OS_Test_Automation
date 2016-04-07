@@ -1,0 +1,29 @@
+;This is a sample suite file.  For more information, please read the MASH
+;documentation at http://wst/toolbox/mash/default.htm
+
+;For questions, e-mail edwards
+
+[mash]
+repeat=0
+
+
+[SuiteProperties]
+TestName=DWM_BVT_EntryPoints
+
+LocalLogName=Mash_II_Test.Log
+
+[Modules]
+module1=DWM_BVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,VerifyDWM_GlassEntryPoint
+function2=1,VerifyDWM_AeroEntryPoint
+;function3=1,VerifyDWM_WindowsSwitcherEntryPoint
+function3=1,VerifyDWM_AltTabVisuals
+function4=1,VerifyDWM_4BTNComboDisabled
+function5=1,VerifyDWM_TaskbarThumbNails
+function6=1,VerifyDWM_RolodexFlip3D
+
+[BVT]
+
+[Scratch Pad]

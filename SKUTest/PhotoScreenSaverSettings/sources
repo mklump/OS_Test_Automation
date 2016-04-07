@@ -1,0 +1,10 @@
+!include ..\sources.inc
+
+TARGETNAME=PhotoScreenSaverSettings_FVT_EntryPoints
+
+MISCFILES=         .\PhotoScreenSaverSettings_FVT_EntryPoints.swt  \
+
+SOURCES     = PhotoScreenSaverSettings_FVT_EntryPoints.cpp                \
+              
+
+

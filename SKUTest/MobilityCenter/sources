@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=MobilityCenter_BVT_EntryPoints
+
+MISCFILES = .\MobilityCenter_BVT_EntryPoints.swt    \
+
+SOURCES = MobilityCenter_BVT_EntryPoints.cpp    \

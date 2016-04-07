@@ -1,0 +1,10 @@
+!include ..\sources.inc
+
+TARGETNAME=MeetingSpace_FVT_EntryPoints
+
+MISCFILES=         .\MeetingSpace_FVT_EntryPoints.swt  \
+
+SOURCES     = MeetingSpace_FVT_EntryPoints.cpp                \
+              
+
+

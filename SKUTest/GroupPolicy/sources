@@ -1,0 +1,11 @@
+!include ..\sources.inc
+
+TARGETNAME=GroupPolicy_BVT_EntryPoints
+                  
+
+MISCFILES=         .\GroupPolicy_BVT_EntryPoints.swt  \
+
+SOURCES     = GroupPolicy_BVT_EntryPoints.cpp                \
+              
+
+

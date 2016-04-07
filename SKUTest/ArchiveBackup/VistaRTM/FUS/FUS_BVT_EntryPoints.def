@@ -1,0 +1,5 @@
+LIBRARY "FUS_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyFUS_StartMenuEntryPoint

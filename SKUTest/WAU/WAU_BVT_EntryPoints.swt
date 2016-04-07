@@ -1,0 +1,22 @@
+; Suite file for Windows Anytime Upgrade basic entry points.
+
+;For questions, e-mail a-jomul
+
+[mash]
+repeat=0
+
+
+[SuiteProperties]
+TestName=WAU_BVT_EntryPoints
+
+[Modules]
+module1=E:\UX_Checkin\testsrc\shelltest\testareas\SKUTest\WAU_BVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,WAUControlPanelEntryPoint
+function1=2,WAUStartMenuEntryPoint
+function1=3,WAUSystemControlPanelEntryPoint
+
+[BVT]
+
+[Scratch Pad]

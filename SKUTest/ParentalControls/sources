@@ -1,0 +1,9 @@
+!include ..\sources.inc
+
+TARGETNAME=ParentalControls_BVT_EntryPoints
+                  
+
+MISCFILES =      ParentalControls_Other_BVT_EntryPoints.swt  \
+		ParentalControls_CPL_BVT_EntryPoints.swt 
+
+SOURCES     = ParentalControls_BVT_EntryPoints.cpp      

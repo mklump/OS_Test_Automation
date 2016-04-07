@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SP1SKUDIFF>
+  <RESKEY ID="reskeyID_Unique_PrimaryKeyValue" category="reskeyCategory_Value" valueRPF="reskey_Has_RKB1[];" valueMAUIMITA="reskey_Does_Not_have_RKB1[];" redirect64Enabled="reskey_requires_64bit_redirection" redirect64Disabled="reskey_requires_32bit_redirection" />
+  <QUERYID ID="queryID_Unique_PrimaryKeyValue" category="queryID_Category_Value" queryID_Value="queryID_StringValue" />
+</SP1SKUDIFF>

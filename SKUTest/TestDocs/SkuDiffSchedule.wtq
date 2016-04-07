@@ -1,0 +1,407 @@
+<WTTData>
+  <Component SetName="EditFramework" GroupName="ObjectEdit">
+    <ComponentData Name="EditFrameworkContainer" Version="2.2.2098.0">
+      <EditableObject Assembly="Microsoft.Wtt.UI.Jobs.Edit" Type="Microsoft.DistributedAutomation.Jobs.UI.ScheduleHelperEditableObject" />
+      <Data>
+        <ScheduleHelper>
+          <IsManual>False</IsManual>
+          <IsSmartSchedulerEnabled>True</IsSmartSchedulerEnabled>
+          <Mix DataStoreOperation="Update" Id="1386" Guid="e1f4cdc3-f796-4f92-8977-b1a9cc33aa63" Name="SKUDiffWeekly" XmlData="New Mix" MixTypeId="1" Description="SKUDiff Automation weekly runs, for Vista SP1" IsShared="true" LastUpdatedTime="2008-01-31T18:42:07.18">
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595401" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595402" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595403" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595404" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595405" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595406" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595666" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595667" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595668" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595669" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="595670" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625966" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625967" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625968" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625969" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625970" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625971" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625972" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625973" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625974" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625975" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625976" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625977" />
+            <MixContext DataStoreOperation="Update" MixId="1386" ContextId="625978" />
+          </Mix>
+          <ContextCollection>
+            <Context Id="595401" Name="HP 86 JP" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="211972" ContextId="595401" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310940" ConstraintId="211972" ConstraintVal="Home Premium" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211973" ContextId="595401" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310941" ConstraintId="211973" ConstraintVal="X86" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211974" ContextId="595401" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310942" ConstraintId="211974" ConstraintVal="Japanese" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595402" Name="BU 86 PS" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="211975" ContextId="595402" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310943" ConstraintId="211975" ConstraintVal="Turkmen" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211976" ContextId="595402" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310944" ConstraintId="211976" ConstraintVal="Professional" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211977" ContextId="595402" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310945" ConstraintId="211977" ConstraintVal="X86" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595403" Name="ST 86 JP" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="211978" ContextId="595403" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310946" ConstraintId="211978" ConstraintVal="Japanese" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211979" ContextId="595403" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310947" ConstraintId="211979" ConstraintVal="Starter" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211980" ContextId="595403" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310948" ConstraintId="211980" ConstraintVal="X86" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595404" Name="HB 86 DE" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="211981" ContextId="595404" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310949" ConstraintId="211981" ConstraintVal="German - Germany" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211982" ContextId="595404" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310950" ConstraintId="211982" ConstraintVal="Home Basic" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211983" ContextId="595404" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310951" ConstraintId="211983" ConstraintVal="X86" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595405" Name="ET 86 EN" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="211984" ContextId="595405" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319108" ConstraintId="211984" ConstraintVal="English - United States" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211985" ContextId="595405" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319109" ConstraintId="211985" ConstraintVal="Pro Premium" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211986" ContextId="595405" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319110" ConstraintId="211986" ConstraintVal="X86" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595406" Name="UT 86 DE" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="211987" ContextId="595406" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310955" ConstraintId="211987" ConstraintVal="Ultimate" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211988" ContextId="595406" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310956" ConstraintId="211988" ConstraintVal="German - Germany" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="211989" ContextId="595406" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310957" ConstraintId="211989" ConstraintVal="X86" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595666" Name="UT 64 EN" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="212008" ContextId="595666" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310983" ConstraintId="212008" ConstraintVal="Ultimate" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212009" ContextId="595666" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310984" ConstraintId="212009" ConstraintVal="English - United States" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212010" ContextId="595666" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310985" ConstraintId="212010" ConstraintVal="AMD64" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595667" Name="HP 64 EN" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="212011" ContextId="595667" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310986" ConstraintId="212011" ConstraintVal="Home Premium" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212012" ContextId="595667" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310987" ConstraintId="212012" ConstraintVal="AMD64" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212013" ContextId="595667" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310988" ConstraintId="212013" ConstraintVal="English - United States" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595668" Name="BU 64 JP" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="212014" ContextId="595668" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310989" ConstraintId="212014" ConstraintVal="AMD64" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212015" ContextId="595668" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310990" ConstraintId="212015" ConstraintVal="Professional" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212016" ContextId="595668" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310991" ConstraintId="212016" ConstraintVal="Japanese" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595669" Name="HB 64 EN" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="212017" ContextId="595669" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310992" ConstraintId="212017" ConstraintVal="AMD64" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212018" ContextId="595669" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310993" ConstraintId="212018" ConstraintVal="Home Basic" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212019" ContextId="595669" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="310994" ConstraintId="212019" ConstraintVal="English - United States" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="595670" Name="ET 64 PS" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="212020" ContextId="595670" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319111" ConstraintId="212020" ConstraintVal="AMD64" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212021" ContextId="595670" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319112" ConstraintId="212021" ConstraintVal="Pro Premium" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="212022" ContextId="595670" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319113" ConstraintId="212022" ConstraintVal="Turkmen" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625966" Name="BU 86 EN" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217215" ContextId="625966" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319069" ConstraintId="217215" ConstraintVal="X86" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217216" ContextId="625966" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319070" ConstraintId="217216" ConstraintVal="Professional" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217217" ContextId="625966" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319071" ConstraintId="217217" ConstraintVal="English - United States" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625967" Name="HP 86 PS" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217218" ContextId="625967" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319072" ConstraintId="217218" ConstraintVal="X86" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217219" ContextId="625967" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319073" ConstraintId="217219" ConstraintVal="Home Premium" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217220" ContextId="625967" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319074" ConstraintId="217220" ConstraintVal="Turkmen" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625968" Name="ST 86 DE" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217221" ContextId="625968" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319075" ConstraintId="217221" ConstraintVal="Starter" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217222" ContextId="625968" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319076" ConstraintId="217222" ConstraintVal="German - Germany" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217223" ContextId="625968" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319077" ConstraintId="217223" ConstraintVal="X86" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625969" Name="ST 86 PS" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217224" ContextId="625969" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319078" ConstraintId="217224" ConstraintVal="Starter" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217225" ContextId="625969" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319079" ConstraintId="217225" ConstraintVal="Turkmen" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217226" ContextId="625969" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319080" ConstraintId="217226" ConstraintVal="X86" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625970" Name="UT 64 JP" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217227" ContextId="625970" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319081" ConstraintId="217227" ConstraintVal="AMD64" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217228" ContextId="625970" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319082" ConstraintId="217228" ConstraintVal="Japanese" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217229" ContextId="625970" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319083" ConstraintId="217229" ConstraintVal="Ultimate" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625971" Name="BU 64 DE" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217230" ContextId="625971" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319084" ConstraintId="217230" ConstraintVal="Professional" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217231" ContextId="625971" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319085" ConstraintId="217231" ConstraintVal="AMD64" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217232" ContextId="625971" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319086" ConstraintId="217232" ConstraintVal="German - Germany" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625972" Name="UT 86 PS" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217233" ContextId="625972" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319087" ConstraintId="217233" ConstraintVal="X86" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217234" ContextId="625972" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319088" ConstraintId="217234" ConstraintVal="Turkmen" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217235" ContextId="625972" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319089" ConstraintId="217235" ConstraintVal="Ultimate" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625973" Name="HB 64 PS" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217236" ContextId="625973" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319090" ConstraintId="217236" ConstraintVal="Home Basic" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217237" ContextId="625973" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319091" ConstraintId="217237" ConstraintVal="AMD64" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217238" ContextId="625973" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319092" ConstraintId="217238" ConstraintVal="Turkmen" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625974" Name="ET 64 JP" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217239" ContextId="625974" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319114" ConstraintId="217239" ConstraintVal="Pro Premium" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217240" ContextId="625974" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319115" ConstraintId="217240" ConstraintVal="AMD64" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217241" ContextId="625974" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319116" ConstraintId="217241" ConstraintVal="Japanese" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625975" Name="ET 86 DE" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217242" ContextId="625975" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319117" ConstraintId="217242" ConstraintVal="Pro Premium" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217243" ContextId="625975" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319118" ConstraintId="217243" ConstraintVal="X86" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217244" ContextId="625975" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319119" ConstraintId="217244" ConstraintVal="German - Germany" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625976" Name="HB 86 JP" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217245" ContextId="625976" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319099" ConstraintId="217245" ConstraintVal="Home Basic" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217246" ContextId="625976" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319100" ConstraintId="217246" ConstraintVal="X86" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217247" ContextId="625976" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319101" ConstraintId="217247" ConstraintVal="Japanese" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625977" Name="ST 86 EN" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217248" ContextId="625977" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319102" ConstraintId="217248" ConstraintVal="Starter" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217249" ContextId="625977" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319103" ConstraintId="217249" ConstraintVal="X86" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217250" ContextId="625977" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319104" ConstraintId="217250" ConstraintVal="English - United States" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+            <Context Id="625978" Name="HP 86 DE" IsInactive="True" XmlData="&lt;NULL&gt;" DataStoreOperation="Update">
+              <Constraint DataStoreOperation="Update" Id="217251" ContextId="625978" DimensionId="4" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319105" ConstraintId="217251" ConstraintVal="Home Premium" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217252" ContextId="625978" DimensionId="7" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319106" ConstraintId="217252" ConstraintVal="X86" />
+              </Constraint>
+              <Constraint DataStoreOperation="Update" Id="217253" ContextId="625978" DimensionId="6" QueryOperatorId="Equals">
+                <ConstraintValue DataStoreOperation="Update" Id="319107" ConstraintId="217253" ConstraintVal="German - Germany" />
+              </Constraint>
+              <ParameterCollection />
+            </Context>
+          </ContextCollection>
+          <JobMixContextEXCollection />
+          <ScheduleMixContextEXCollection>
+            <ScheduleMixContextEX ContextId="625971" ContextName="BU 64 DE" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595668" ContextName="BU 64 JP" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625966" ContextName="BU 86 EN" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595402" ContextName="BU 86 PS" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625974" ContextName="ET 64 JP" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595670" ContextName="ET 64 PS" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625975" ContextName="ET 86 DE" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595405" ContextName="ET 86 EN" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595669" ContextName="HB 64 EN" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625973" ContextName="HB 64 PS" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595404" ContextName="HB 86 DE" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625976" ContextName="HB 86 JP" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595667" ContextName="HP 64 EN" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625978" ContextName="HP 86 DE" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595401" ContextName="HP 86 JP" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625967" ContextName="HP 86 PS" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625968" ContextName="ST 86 DE" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625977" ContextName="ST 86 EN" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595403" ContextName="ST 86 JP" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625969" ContextName="ST 86 PS" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595666" ContextName="UT 64 EN" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625970" ContextName="UT 64 JP" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="595406" ContextName="UT 86 DE" DataStoreOperation="Insert" />
+            <ScheduleMixContextEX ContextId="625972" ContextName="UT 86 PS" DataStoreOperation="Insert" />
+          </ScheduleMixContextEXCollection>
+          <ResultSummaryCollection />
+          <ResourcePool DataStoreOperation="Update" Id="3337" Name="Automation" Path="$\WindowsShell\SKULab\" PushDaemonResourceId="79422" ScheduleAsUnit="false" ParentId="385" IsSmartSchedulerEnabled="true" ChildCount="0" />
+          <ScheduleResultPipelineCollection />
+          <JobCollection />
+          <Query MaxResults="0">
+            <ObjectList>
+              <Object FullName="Microsoft.DistributedAutomation.Jobs.Job" />
+            </ObjectList>
+            <ColumnList />
+            <StatementList>
+              <Statement Type="Where">
+                <Expression Reference="Job.ChildFeatureAncestryCollection" Operator="Has">
+                  <Expression Reference="AncestorFeatureId" Operator="Equals">
+                    <Literal Value="15991" DataType="System.String" />
+                  </Expression>
+                </Expression>
+                <ExpressionConjunction Type="And" />
+                <Expression Reference="Job.JobExecutionTypeId" Operator="NotEquals">
+                  <Literal Value="Manual" DataType="System.String" />
+                </Expression>
+                <ExpressionConjunction Type="And" />
+                <Expression Reference="Job.Name" Operator="BeginsWith">
+                  <Literal Value="[SKUDIFF]" DataType="System.String" />
+                </Expression>
+              </Statement>
+            </StatementList>
+            <GroupCollection />
+            <SortList />
+          </Query>
+          <CustomXml>
+            <ObjectQueryBuilder ControlType="Microsoft.DistributedAutomation.UI.QueryBuilder" ControlAssembly="Microsoft.WTT.UI.Controls.ObjectControls" Assembly="WTTOMJobs" Type="Microsoft.DistributedAutomation.Jobs.Job" Title="Job Query">
+              <Expression Index="1" Static="True" AttachWith="" Mapping="DataStore" Field="DataStore" Operator="Equals" Value="WindowsShell" />
+              <Expression Index="2" Static="False" AttachWith="And" Mapping="FullPath" Field="Feature Path" Operator="Contains" Value="$\LH\Desktop Shell\Basics\SKU Scenarios\SP1 Jobs\Automation" />
+              <Expression AttachWith="And" Mapping="JobExecutionTypeId" Field="Role (Execution Type)" Operator="NotEquals" Value="Manual" />
+              <Expression AttachWith="And" Mapping="Name" Field="Name" Operator="BeginsWith" Value="[SKUDIFF]" />
+            </ObjectQueryBuilder>
+          </CustomXml>
+          <ResourceCollection />
+          <ScheduleOptions IdentityServerName="TKBGITWTTSQL23.redmond.corp.microsoft.com" IdentityDBName="WTTIdentity" JobsDefinitionController="WindowsShell" JobsRuntimeController="WindowsShell" JobRunMultiplier="1" MaxJobsPerRun="1" ContinueOnFailure="false" ScheduleStartTime="0001-01-01T00:00:00" ScheduleTimeout="120" ScheduleRuntimeMinutes="120" TrackFailure="false" IsPrivateRun="false" IsJobRunMultiplier="true" IsRunAtOnce="true" RunTimeout="0" RunOnAllResources="false" />
+          <MailOptions SendCollectionMail="false" SendRunMail="false" SendJobPassMail="false" SendJobFailMail="false" SendJobWarnMail="false" />
+          <JobParameterCollection />
+          <OverriddenGlobalParameterCollection />
+          <Version>3.0</Version>
+          <SourceDataStore>WindowsShell</SourceDataStore>
+          <DestinationDataStore>WindowsShell</DestinationDataStore>
+          <EnterpriseName>Windows</EnterpriseName>
+        </ScheduleHelper>
+      </Data>
+      <Properties SaveAndClose="true" Title="Schedule Jobs">
+        <Menu SaveObjectText="&amp;Create Schedule" EditObjectText="&amp;Edit Schedule" />
+        <ToolBar SaveObjectToolTip="Create Schedule (Ctrl+S)" EditObjectToolTip="Edit Schedule (Ctrl+D)" />
+      </Properties>
+    </ComponentData>
+  </Component>
+  <ActiveComponent SetName="EditFramework" GroupName="ObjectEdit" />
+</WTTData>

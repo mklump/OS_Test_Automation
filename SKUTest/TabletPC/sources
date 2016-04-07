@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=TabletPC_BVT_EntryPoints
+
+MISCFILES=         .\TabletPC_BVT_EntryPoints.swt  \
+
+SOURCES     = TabletPC_BVT_EntryPoints.cpp      

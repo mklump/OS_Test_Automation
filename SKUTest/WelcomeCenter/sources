@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=WelcomeCenter_BVT_EntryPoints
+
+MISCFILES=         WelcomeCenter_BVT_EntryPoints.swt  \
+
+SOURCES     = WelcomeCenter_BVT_EntryPoints.cpp      

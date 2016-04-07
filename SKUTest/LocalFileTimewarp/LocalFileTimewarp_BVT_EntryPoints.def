@@ -1,0 +1,5 @@
+LIBRARY "LocalFileTimewarp_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyLocalFileTimewarp

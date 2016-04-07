@@ -1,0 +1,7 @@
+LIBRARY "DWM_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyDWM_GlassEntryPoint
+        VerifyDWM_AeroEntryPoint
+        VerifyDWM_WindowsSwitcherEntryPoint

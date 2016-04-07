@@ -1,0 +1,24 @@
+;This is a sample suite file.  For more information, please read the MASH
+;documentation at http://wst/toolbox/mash/default.htm
+
+;For questions, e-mail edwards
+
+[mash]
+repeat=0
+
+
+[SuiteProperties]
+TestName=ParentalControls_BVT_EntryPoints
+
+[Modules]
+module1=E:\UX_Checkin\testsrc\shelltest\testareas\SKUTest\ParentalControls_BVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,VerifyParentalControlsCplHomeViewEntryPoint
+function2=2,VerifyParentalControlsCplClassicViewEntryPoint
+function3=3,VerifyParentalControlsGamesExplorerEntryPoint
+function4=4,VerifyParentalControlsInternetExplorerEntryPoint
+
+[BVT]
+
+[Scratch Pad]

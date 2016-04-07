@@ -1,0 +1,10 @@
+!include ..\sources.inc
+
+TARGETNAME=WAU_BVT_EntryPoints
+
+MISCFILES=         .\WAU_BVT_EntryPoints.swt  \
+
+SOURCES     = WAU_BVT_EntryPoints.cpp                
+              
+
+

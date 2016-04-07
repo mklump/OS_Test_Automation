@@ -1,0 +1,6 @@
+LIBRARY "WmpAndMm_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyWmp_StartMenuEntryPoint
+        VerifyMm_StartMenuEntryPoint

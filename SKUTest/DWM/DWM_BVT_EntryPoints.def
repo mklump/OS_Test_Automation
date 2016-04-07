@@ -1,0 +1,11 @@
+LIBRARY "DWM_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyDWM_GlassEntryPoint
+        VerifyDWM_AeroEntryPoint
+        VerifyDWM_WindowsSwitcherEntryPoint
+        VerifyDWM_AltTabVisuals
+        VerifyDWM_4BTNComboDisabled
+        VerifyDWM_TaskbarThumbNails
+        VerifyDWM_RolodexFlip3D

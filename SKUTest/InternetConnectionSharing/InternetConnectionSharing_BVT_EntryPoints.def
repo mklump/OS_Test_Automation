@@ -1,0 +1,6 @@
+LIBRARY "InternetConnectionSharing_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        ICSViewStatusEntryPoint
+        ICSManageNetworkConnectionsEntryPoint

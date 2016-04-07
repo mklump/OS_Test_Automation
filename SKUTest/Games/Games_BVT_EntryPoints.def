@@ -1,0 +1,7 @@
+LIBRARY "Games_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyGames_PremiumGamesEntryPoint
+        VerifyGames_DefaultInstalledGamesEntryPoint
+        VerifyGames_WindowsFeaturesEntryPoint

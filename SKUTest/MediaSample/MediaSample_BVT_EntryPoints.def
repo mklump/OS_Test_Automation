@@ -1,0 +1,5 @@
+LIBRARY "MediaSample_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyMediaSampleFiles

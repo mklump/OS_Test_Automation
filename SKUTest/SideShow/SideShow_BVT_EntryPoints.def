@@ -1,0 +1,5 @@
+LIBRARY "SideShow_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        SideShow_BVT_EntryPoints

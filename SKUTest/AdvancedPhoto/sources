@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=AdvancedPhoto_BVT_EntryPoints
+
+MISCFILES=         .\AdvancedPhoto_BVT_EntryPoints.swt  
+
+SOURCES     = AdvancedPhoto_BVT_EntryPoints.cpp                

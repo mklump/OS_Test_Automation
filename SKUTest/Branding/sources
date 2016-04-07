@@ -1,0 +1,11 @@
+!include ..\sources.inc
+
+TARGETNAME=Branding_BVT_EntryPoints
+
+MISCFILES =  .\Branding_BVT_EntryPoints.swt  \
+
+SOURCES   =  Branding_BVT_EntryPoints.cpp    \
+			 Branding_BVT_EntryPoints_LogonScreen.cpp	\
+              
+
+

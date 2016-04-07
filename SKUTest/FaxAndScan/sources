@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=FaxAndScan_BVT_EntryPoints
+
+MISCFILES=         .\FaxAndScan_BVT_EntryPoints.swt  \
+
+SOURCES     = FaxAndScan_BVT_EntryPoints.cpp      

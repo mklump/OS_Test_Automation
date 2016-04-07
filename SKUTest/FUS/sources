@@ -1,0 +1,8 @@
+!include ..\sources.inc
+
+TARGETNAME=FUS_BVT_EntryPoints
+                  
+
+MISCFILES=         .\FUS_BVT_EntryPoints.swt  \
+
+SOURCES     = FUS_BVT_EntryPoints.cpp      

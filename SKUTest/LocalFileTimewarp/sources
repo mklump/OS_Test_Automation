@@ -1,0 +1,8 @@
+!include ..\sources.inc
+
+TARGETNAME=LocalFileTimewarp_BVT_EntryPoints
+
+MISCFILES=      .\LocalFileTimewarp_BVT_EntryPoints.swt  \
+		
+
+SOURCES     = LocalFileTimewarp_BVT_EntryPoints.cpp      

@@ -1,0 +1,8 @@
+LIBRARY "ParentalControls_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyParentalControlsCplHomeViewEntryPoint
+        VerifyParentalControlsCplClassicViewEntryPoint
+        VerifyParentalControlsGamesExplorerEntryPoint
+        VerifyParentalControlsInternetExplorerEntryPoint

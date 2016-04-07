@@ -1,0 +1,10 @@
+!include ..\sources.inc
+
+TARGETNAME=WindowsFeatures_BVT
+
+MISCFILES=         .\WindowsFeatures_BVT.swt  \
+
+SOURCES     = WindowsFeatures_BVT.cpp                \
+              
+
+

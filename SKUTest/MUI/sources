@@ -1,0 +1,10 @@
+!include ..\sources.inc
+
+TARGETNAME=MUI_BVT_EntryPoints
+
+MISCFILES=         .\MUI_BVT_EntryPoints.swt  \
+
+SOURCES     = MUI_BVT_EntryPoints.cpp                \
+              
+
+

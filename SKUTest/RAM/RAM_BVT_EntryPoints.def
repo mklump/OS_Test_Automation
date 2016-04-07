@@ -1,0 +1,5 @@
+LIBRARY "RAM_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyRAM_ControlPanelEntryPoint

@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=FileEncryption_BVT_EntryPoints
+
+MISCFILES=         FileEncryption_BVT_EntryPoints.swt  \
+
+SOURCES     = FileEncryption_BVT_EntryPoints.cpp      

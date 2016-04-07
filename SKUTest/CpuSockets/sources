@@ -1,0 +1,8 @@
+!include ..\sources.inc
+
+TARGETNAME=CPU_Sockets_BVT_EntryPoints
+                  
+
+MISCFILES  = CPU_Sockets_BVT_EntryPoints.swt  \
+
+SOURCES    = CPU_Sockets_BVT_EntryPoints.cpp      

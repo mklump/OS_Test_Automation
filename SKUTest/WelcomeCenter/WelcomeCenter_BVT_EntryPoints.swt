@@ -1,0 +1,36 @@
+;This is a sample suite file.  For more information, please read the MASH
+;documentation at http://wst/toolbox/mash/default.htm
+
+;For questions, e-mail edwards
+
+[mash]
+repeat=0
+
+
+[SuiteProperties]
+TestName=WelcomeCenter_BVT_EntryPoints
+
+[Modules]
+module1=WelcomeCenter_BVT_EntryPoints.dll
+
+[Unit Test]
+function1=1,WelcomeCenter_Comp_Details_EntryPoint
+function2=1,WelcomeCenter_Add_User_EntryPoint
+function3=1,WelcomeCenter_Easy_Transfer_EntryPoint
+function4=1,WelcomeCenter_Connect_Internet_EntryPoint
+function5=1,WelcomeCenter_Ultimate_Extras_EntryPoint
+function6=1,WelcomeCenter_Whats_New_EntryPoint
+function7=1,WelcomeCenter_Personalize_EntryPoint
+function8=1,WelcomeCenter_Register_Windows_EntryPoint
+function9=1,WelcomeCenter_Add_Printer_EntryPoint
+function10=1,WelcomeCenter_MCE_EntryPoint
+function11=1,WelcomeCenter_Demos_EntryPoint
+function12=1,WelcomeCenter_Basics_EntryPoint
+function13=1,WelcomeCenter_Ease_Access_EntryPoint
+function14=1,WelcomeCenter_Backup_Restore_EntryPoint
+function15=1,WelcomeCenter_Control_Panel_EntryPoint
+function16=1,WelcomeCenter_Anytime_Upgrade_EntryPoint
+
+[BVT]
+
+[Scratch Pad]

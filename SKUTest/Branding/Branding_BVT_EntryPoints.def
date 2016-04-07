@@ -1,0 +1,8 @@
+LIBRARY "Branding_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        BrandingWC_BVT_EntryPoints
+        BrandingSysDM_BVT_EntryPoints
+        VerifyLogonBranding_BVTEntryPoint
+        BrandingAboutWindows_BVT_EntryPoints

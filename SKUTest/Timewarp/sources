@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=Timewarp_BVT_EntryPoints
+
+MISCFILES=         Timewarp_BVT_EntryPoints.swt  \
+
+SOURCES     = Timewarp_BVT_EntryPoints.cpp      

@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKCU\Software\Microsoft\MobilePC\MobilityCenter]
+"RunOnDesktop":DWORD:00000000
+
+
+[HKEY_CURRENT_USER\Software\Microsoft\MobilePC\AdaptableSettings]
+"SkipBatteryCheck"=dword:00000000

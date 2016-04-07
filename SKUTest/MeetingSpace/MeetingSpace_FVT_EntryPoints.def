@@ -1,0 +1,5 @@
+LIBRARY "MeetingSpace_FVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyCreatingNewMeeting

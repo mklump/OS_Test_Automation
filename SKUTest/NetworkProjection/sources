@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=NetworkProjection_BVT_EntryPoints
+
+MISCFILES = .\NetworkProjection_BVT_EntryPoints.swt    \
+
+SOURCES = NetworkProjection_BVT_EntryPoints.cpp    \

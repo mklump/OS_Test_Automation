@@ -1,0 +1,7 @@
+LIBRARY "Backup_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+	WAUControlPanelEntryPoint
+	WAUStartMenuEntryPoint
+	WAUSystemControlPanelEntryPoint

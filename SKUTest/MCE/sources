@@ -1,0 +1,10 @@
+!include ..\sources.inc
+
+TARGETNAME=MCE_BVT_EntryPoints
+
+MISCFILES=         .\MCE_BVT_EntryPoints.swt  \
+
+SOURCES     = MCE_BVT_EntryPoints.cpp                \
+              
+
+

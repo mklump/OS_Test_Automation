@@ -1,0 +1,5 @@
+LIBRARY "CPU_Sockets_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        VerifyCpuSocketsUsage

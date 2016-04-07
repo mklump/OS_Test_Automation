@@ -1,0 +1,25 @@
+TARGETNAME=DomainJoin_BVT_EntryPoints
+TARGETTYPE=DYNLINK
+DLLENTRY=_DllMainCRTStartup
+
+USE_MSVCRT=1
+USE_STATIC_ATL=1
+ATL_VER=70
+USE_VCCOM=1
+USE_NATIVE_EH=1
+
+    
+
+TARGETLIBS = $(SDK_LIB_PATH)\kernel32.lib      \
+	     $(SDK_LIB_PATH)\User32.lib		\
+             $(PROJECT_OBJ_ROOT)\tools\harnesses\mash2\MashLib\$(O)\MashLib.lib \
+             $(SDK_LIB_PATH)\ole32.lib                                      \
+             $(SDK_LIB_PATH)\oleaut32.lib                                   \
+                  
+
+MISCFILES=         .\DomainJoin_BVT_EntryPoints.swt  \
+
+SOURCES     = DomainJoin_BVT_EntryPoints.cpp                \
+              
+
+

@@ -1,0 +1,7 @@
+!include ..\sources.inc
+
+TARGETNAME=Games_BVT_EntryPoints
+
+MISCFILES=         .\Games_BVT_EntryPoints.swt  \
+
+SOURCES     = Games_BVT_EntryPoints.cpp      

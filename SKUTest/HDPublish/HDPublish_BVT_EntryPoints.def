@@ -1,0 +1,5 @@
+LIBRARY "Backup_BVT_EntryPoints.dll"
+
+EXPORTS InitTest
+        UnInitTest
+        HDPublishSelection
