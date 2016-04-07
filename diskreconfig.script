@@ -1,0 +1,17 @@
+select disk 0
+select volume=c
+REMOVE ALL
+select volume=d
+REMOVE ALL
+select volume=e
+REMOVE ALL
+CLEAN
+create partition primary size=60000
+assign letter=C
+create partition primary size=40000
+assign letter=D
+create partition primary
+assign letter=E
+select partition 2
+active
+exit

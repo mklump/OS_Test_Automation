@@ -1,0 +1,492 @@
+#include "Resource.h"
+
+import "prsht.idl";
+import "mshtml.idl";
+import "dimm.idl";
+import "mshtmhst.idl";
+import "docobj.idl";
+import "objsafe.idl";
+import "OleAcc.idl";
+
+const int DEFAULT_DRAG_SPEED = 50;
+const int DEFAULT_TYPING_DELAY = 50;
+
+const BSTR PLAYBACK_VERSION_STRING = RPF_PLAYBACK_VERSION;
+
+[ version(1.0), uuid(440B1506-7E91-41DD-A19D-F3654351A7DB),helpstring("RPFPlayback 1.0 Type Library") ]
+library RPFPlayback
+{
+
+#pragma region ScreenElement enums
+
+    typedef enum SearchFlags
+    {
+        ALL_DESCENDANTS = -1,
+        CHILDREN_ONLY = 1,
+    } SEARCHFLAGS;
+
+    typedef enum KeyboardAction
+    {
+        PRESS = 1,
+        RELEASE = 2,
+        HIT = 3
+    } KEYBOARD_ACTION;
+
+    typedef enum VerificationFlags 
+    { 
+        VF_VALUE_STATE_EXACT = 0x00000000,
+        VF_VALUE_DONTCARE = 0x00000001,  
+        VF_STATE_DONTCARE = 0x00000002,
+        VF_STATE_HAS = 0x00000004,
+        VF_VALUE_BEGINS = 0x00000008,    // used by VerifyScreenElement() -- element text only needs to begin with test string
+
+    } VERIFICATIONFLAGS;
+
+    typedef enum SetValueAsSliderFlags
+    { 
+        DF_AUTO = 0x00000000,  
+        DF_HORIZONTAL = 0x00000001,  
+        DF_VERTICAL = 0x00000002,  
+    } SLIDERFLAGS;
+
+    typedef enum SetValueAsComboBoxFlags
+    { 
+        CF_LEFT_DROP_DOWN_BUTTON = 0x00000001,  
+        CF_USE_SELECT = 0x00000002,  
+        CF_USE_SET_AS_EDIT = 0x00000004,
+        CF_DONT_VERIFY_SENDKEYS = 0x00000008,
+        CF_DONT_VERIFY_MIRROR_LANG = 0x00000010,
+        CF_USE_QUERYID = 0x00000020,
+    } VALUEASCOMBOBOXFLAGS;
+
+    typedef enum SetValueAsEditBoxFlags
+    {
+        EF_DELETE_CONTENT = 0x00000001,  
+        EF_USE_MSAA = 0x00000002, 
+        EF_USE_WM_SETTEXT = 0x00000004,  
+        EF_USE_COPY_PASTE = 0x00000008,
+        EF_USE_SENDKEYS = 0x00000010,  
+        EF_DONT_VERIFY = 0x00000020,  
+    }VALUEASEDITBOXFLAGS;
+
+    typedef enum EnsureVisibleFlags 
+    { 
+        EVF_BY_SCROLLING = 0x00000001,
+        EVF_BY_EXPANDING_ANCESTORS = 0x00000002,
+        EVF_BY_EXPANDING_SIBLINGS = 0x00000004,
+        EVF_BY_SETTING_FOCUS = 0x00000008,
+    }ENSUREVISIBLEFLAGS;
+
+    typedef enum ScrollingFlags 
+    { 
+        SF_SCROLL_BAR = 0x00000001,
+        SF_WHEEL = 0x00000002,
+        SF_KEYBOARD = 0x00000004,
+    }SCROLLINGFLAGS;
+
+    typedef enum ExpandCollapseFlags
+    {
+        ECF_USE_TVM_EXPAND = 0x00000001,
+        ECF_USE_DOUBLECLICK = 0x00000002,
+        ECF_USE_NUMPAD = 0x00000004,
+        ECF_USE_ENTER = 0x00000008,
+    } EXPANDCOLLAPCEFLAGS;
+
+    typedef enum MouseButtons
+    { 
+        LEFT_BUTTON = 0, 
+        RIGHT_BUTTON = 1,
+        MIDDLE_BUTTON = 2,
+        X_BUTTON_1 = 3,
+        X_BUTTON_2 = 4
+    }MOUSE_BUTTONS;
+
+    typedef enum PlaybackFlags
+    {
+       SET_MOUSE_POS_INSTANTLY = 0x1,
+       ENSURE_VISIBLE = 0x2
+
+    }PLAYBACK_FLAGS;
+
+#pragma endregion ScreenElement enums
+
+#pragma region Playback enums
+
+    typedef enum LoggingFlags
+    {
+        FL_DISABLE_LOGGING = 0xFFFFFFFF,
+        FL_LOG_SEARCH_AND_PRIMITIVES = 0x00000001,
+        FL_LOG_TIME = 0x00000002,
+        FL_LOG_INTERNAL_INFO = 0x00000004,
+        FL_LOG_DUMP_SCREEN = 0x00000008,
+        FL_LOG_FAILURE_AS_INFO = 0x00000010,
+        FL_LOG_MSAA_PERF = 0x00000020,
+        FL_DUMP_DESCENDANTS_WHEN_NOT_FOUND = 0x00000040,
+        FL_LOG_AS_HTML = 0x00000080,
+    } LOGGINGFLAGS;
+
+    typedef enum DumpScreenFormat 
+    {
+        DUMP_SCREEN_BMP = 1, 
+        DUMP_SCREEN_PNG = 2, 
+        DUMP_SCREEN_JPEG = 3, 
+        DUMP_SCREEN_GIF = 4
+    }DUMPSCREENFORMAT;
+
+    typedef enum WaitForReadyMode
+    {
+        MW_THREAD_STATE = 0x00000001,
+        MW_PROCESS_IDLE = 0x00000002,
+    } WAITFORREADYMODE;
+
+    typedef enum ThreadState
+    {
+        Initialized = 0,
+        Ready = 1,
+        Running = 2,
+        Standby = 3,
+        Terminated = 4,
+        Waiting = 5,
+        Transition = 6,
+        UnknownState = 7,
+    } THREAD_STATE;
+ 
+    typedef enum AccTechnology 
+    { 
+        WINDOW = 0x1,
+        MSAA = 0x2, 
+        UIA = 0x4,
+    }ACC_TECHNOLOGY;
+
+    typedef enum InternalParameter
+    { 
+        SEARCH_IN_TARGETPROCESS_ONLY = 1,
+        WFR_TIMEOUT = 2,
+        DEBUG_MODE = 3,
+        UISYNCHRONIZATION_ENABLED = 4,
+        EXACT_QID_MATCH = 5,
+        TARGET_WINDOW = 6,
+        TARGET_PROCESS_ID = 7,
+        SEARCH_TIMEOUT = 8, 
+        SENDKEYS_DELAY = 9,
+        ALLOW_INPUT_ON_DESCENDANTS = 10,
+        EXIT_AS = 11,
+        ENABLE_MESSAGE_BOXES = 12,
+        ACCESSIBLE_TECHNOLOGY = 13,
+        DUMP_SCREEN_FORMAT = 14
+    }INTERNAL_PARAMETER;
+
+    typedef enum ExistAsParameter
+    { 
+        EXIT_PROCESS = 1,
+        SKIP_ALL_STEPS = 2
+    }EXIT_AS_PARAMETER;
+
+#pragma endregion Playback enums
+
+    importlib("stdole2.tlb");
+    [
+        version(1.0),
+        uuid(6EFAE6CD-1EB3-4D73-8975-6FBA0AE56FEE),
+        helpstring("RPFPlayback Class")
+    ] 
+    coclass CRPFPlayback {
+        interface IRPFPlayback;
+    };
+
+    [
+        version(1.0),
+        uuid(7AAD456D-DE8F-4a58-B931-DA70E609C808),
+        helpstring("ScreenUIElement Class")
+    ] 
+    coclass ScreenUIElement {
+        interface IScreenElement;
+    };
+};
+
+[
+    object, 
+    uuid(CC87985A-D401-415a-8196-B13A68F0ACBD) 
+]
+
+interface  IWinEventHandle: IUnknown {
+    [id(0),helpstring("method QueryId")] HRESULT GetQueryId([out, retval] BSTR* pbstrQueryId);
+    [id(1),helpstring("method QueryId")] HRESULT SetQueryId([in] BSTR bstrQueryId);
+    [id(2),helpstring("method GetWinEvent")] HRESULT GetWinEvent([out, retval] INT* pnWinEvent);
+    [id(3),helpstring("method SetWinEvent")] HRESULT SetWinEvent([in] INT nWinEvent);
+    [id(4),helpstring("method StartWaiting")] HRESULT StartWaiting();
+};
+
+[
+    object, 
+    uuid(1C00DACB-4FE7-4040-A781-B93CDA73988C) 
+]
+interface IMonitoringWindowsCallback : IUnknown {
+    [id(0),helpstring("MonitoringWindowsCallBack")] HRESULT MonitoringWindowsCallBack([in] BSTR bstrWindowClass, [in] BSTR bstrWindowName, [in] INT64 hWnd, [in] int nWinEvent);
+    [id(1),helpstring("GetMonitoringInfo")] HRESULT GetMonitoringInfo([out] BSTR* pbstrWindowClass, [in] int cchClass, [out] BSTR* pbstrWindowName, [in] int cchWindowName, [out] IWinEventHandle** ppWinEventHandle);
+};
+
+[
+    object, 
+    uuid(96BC3CB8-1523-4d63-A174-BF655B1911AA) 
+]
+interface ILoggerCallback : IUnknown {
+    [id(0),helpstring("LoggerCallback")] HRESULT LoggerCallback([in, out] BSTR*  pbstrLogString, [in, out] int *pfLogDefault, [in, out] int *pnDumpScreen);
+};
+
+[
+    object, 
+    uuid(B653632A-D625-4ffa-9DD3-2775FC09E2E5) 
+]
+interface IScrollerCallback : IUnknown {
+
+    typedef enum ScrollAmountRpf
+    {
+        NO_AMOUNT = 0x00000000,
+        FORWARD_BY_LARGE_AMOUNT = 0x00000001,
+        BACK_BY_LARGE_AMOUNT = 0x00000002,
+        FORWARD_BY_SMALL_AMOUNT = 0x00000003,
+        BACK_BY_SMALL_AMOUNT = 0x00000004,
+    } SCROLLAMOUNT;
+
+    [id(0),helpstring("VerticalScrollCallback")] HRESULT VerticalScrollCallback([in] int nScrollAmount, [out] int *pnPercentScrolled);
+    [id(1),helpstring("HorizontalScrollCallback")] HRESULT HorizontalScrollCallback([in] int nScrollAmount, [out] int *pnPercentScrolled);
+};
+
+[
+    object,
+    uuid(37B28BC2-69EB-4aa6-9679-B28376A423D3)
+] 
+interface IAccessibleUia : IAccessible
+{
+    [id(0),helpstring("ReleaseAllChildren")] HRESULT ReleaseAllChildren();
+    [id(1),helpstring("GetRuntimeId")] HRESULT GetRuntimeId([out, retval] SAFEARRAY (VARIANT) *ppIdResults);
+    [id(2),helpstring("GetAutomationId")] HRESULT GetAutomationId([out, retval] BSTR *pbstrAutomationId);
+    [id(3),helpstring("GetAutomationElement")] HRESULT GetAutomationElement([out, retval] VARIANT *automationElement);
+    [id(4),helpstring("GetClassName")] HRESULT GetClassName([out, retval] BSTR* bstrClassName);
+    [id(5),helpstring("SetFocus")] HRESULT SetFocus();
+    [id(6),helpstring("UpdateScrollPattern")] HRESULT UpdateScrollPattern();
+    [id(7),helpstring("UpdateScrollItemPattern")] HRESULT UpdateScrollItemPattern();
+    [id(8),helpstring("ScrollItemIntoView")] HRESULT ScrollItemIntoView();
+    [id(9),helpstring("ScrollContainer")] HRESULT ScrollContainer([in] int nOrientation, [in] int nScrollAmount);
+    [id(10),helpstring("ScrollPercent")] HRESULT ScrollPercent([in] int nOrientation, [out, retval] double* pdwScrollPercent);
+    [id(11),helpstring("SupportsScrollPattern")] HRESULT SupportsScrollPattern([out, retval] BOOL* pfSupported);
+    [id(12),helpstring("SupportsScrollItemPattern")] HRESULT SupportsScrollItemPattern([out, retval] BOOL* pfSupported);
+    [id(13),helpstring("ReleaseScrollPattern")] HRESULT ReleaseScrollPattern();
+    [id(14),helpstring("ReleaseScrollItemPattern")] HRESULT ReleaseScrollItemPattern();
+    [id(15),helpstring("SetRangeValue")] HRESULT SetRangeValue([in] int nPercentValue);
+}
+
+[
+    object,
+    uuid(D330F2FE-9AA1-4134-94ED-91A72AD387A6)
+] 
+
+interface IAccessibleUiaSupport : IUnknown
+{
+    [id(0),helpstring("GetRPFManagedUiaVersion")] HRESULT GetRPFManagedUiaVersion([out] BSTR *pbstrVersion);
+    [id(1),helpstring("AccessibleUiaElementFromPoint")] HRESULT AccessibleUiaElementFromPoint([in] int x, [in] int y, [out, retval] IAccessibleUia **ppAccessibleUia);
+    [id(2),helpstring("AccessibleUiaFromHwnd")] HRESULT AccessibleUiaFromHwnd([in] INT64 hWnd, [out, retval] IAccessibleUia **ppAccessibleUia);
+    [id(3),helpstring("WindowFromAccessibleUia")] HRESULT WindowFromAccessibleUia([in] IAccessibleUia* pAccessibleUia, [out, retval] INT64* pHWnd);
+}
+
+[
+    object,
+    uuid(E8C80E92-831A-44b3-8236-815A964473F8),
+    dual,
+    oleautomation,
+    helpstring("IScreenElement Interface"),
+    pointer_default(unique)
+] 
+interface IScreenElement : IDispatch 
+{
+    [id(1),propget,helpstring("method Accessible")] HRESULT  Accessible([out, retval] VARIANT* pvarDisp);
+    [id(2),propget,helpstring("method ChildId")] HRESULT  ChildId([out, retval] VARIANT* ChildId);
+    [id(3),propget,helpstring("method hWnd")] HRESULT  hWnd([out, retval] INT64* hWnd);
+    [id(4),propget,helpstring("method IdentificationString")] HRESULT IdentificationString([out, retval] BSTR* pbstrIdentificationString);
+    [id(5),propget,helpstring("method Name")] HRESULT Name([out, retval] BSTR* pbstrName);
+    [id(6),propget,helpstring("method ClassName")] HRESULT ClassName([out, retval] BSTR* pbstrClassName);
+    [id(7),propget,helpstring("method RoleText")] HRESULT RoleText([out, retval] BSTR* pbstrRoleText);
+    [id(8),propget,helpstring("method Value")] HRESULT Value([out, retval] BSTR* pbstrValue);
+    [id(9),propget,helpstring("method State")] HRESULT State([out, retval] BSTR* pbstrState);
+    [id(10),propget,helpstring("method Parent")] HRESULT Parent([out, retval] IScreenElement** ppScreenElement);
+    [id(11),propget,helpstring("method HTMLElement")] HRESULT HTMLElement([out, retval] IHTMLElement** ppIHTMLElement);
+    [id(12),propget,helpstring("method AccTechnology")] HRESULT AccTechnology([out, retval] INT* pnAccTechnology);
+
+    [id(13),helpstring("method LeftButtonClick")] HRESULT  LeftButtonClick([in] INT x, [in] INT y, [in, defaultvalue(TRUE)] BOOL fEnsureVisible, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers);
+    [id(14),helpstring("method DoubleClick")] HRESULT  DoubleClick([in] INT x, [in] INT y, [in, defaultvalue(TRUE)] BOOL fEnsureVisible, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers);
+    [id(15),helpstring("method RightButtonClick")] HRESULT  RightButtonClick([in] INT x, [in] INT y, [in, defaultvalue(TRUE)] BOOL fEnsureVisible, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers);
+    [id(16),helpstring("method Expand")] HRESULT  Expand([in, defaultvalue(ECF_USE_TVM_EXPAND | ECF_USE_DOUBLECLICK | ECF_USE_NUMPAD | ECF_USE_ENTER)] INT nExpandCollapseFlag);
+    [id(17),helpstring("method Check")] HRESULT Check([in, defaultvalue(FALSE)] BOOL fSetIndeterminate, [in, defaultvalue(TRUE)] BOOL fVerifyFinalState);
+    [id(18),helpstring("method Collapse")] HRESULT Collapse([in, defaultvalue(ECF_USE_TVM_EXPAND | ECF_USE_DOUBLECLICK | ECF_USE_NUMPAD | ECF_USE_ENTER)] INT nExpandCollapseFlag);
+    [id(19),helpstring("method EnsureVisible")] HRESULT EnsureVisible([in, defaultvalue(EVF_BY_SCROLLING)] int nEnsureVisibleFlag, [in, defaultvalue(-1)] int x, [in, defaultvalue(-1)] int y, [in, defaultvalue(NULL)] IScrollerCallback* pScrollerCallback, [in, defaultvalue(SF_SCROLL_BAR | SF_WHEEL)] int nScrollFlag, [in, defaultvalue(2)] int nMaximumContainers);
+    // defaultvalue(0x2) means SELFLAG_TAKESELECTION
+    [id(20),helpstring("method Select")] HRESULT Select([in, defaultvalue(0x2)] int nSelectionFlag);
+    [id(21),helpstring("method SendKeys")] HRESULT SendKeys([in]BSTR bstrKeys, [in, defaultvalue(HIT)] INT nKeyboardAction);
+    [id(22),helpstring("method SetValueAsComboBox")] HRESULT SetValueAsComboBox([in]BSTR bstrNewValue, [in, defaultvalue(CF_USE_SET_AS_EDIT | CF_USE_SELECT)] INT nSetValueAsComboBoxFlag);
+    [id(23),helpstring("method SetValueAsEditBox")] HRESULT SetValueAsEditBox ([in]BSTR bstrNewValue, [in, defaultvalue(EF_DELETE_CONTENT | EF_USE_SENDKEYS)] INT nSetValueAsEditBoxFlag);
+    [id(24),helpstring("method StartDragging")] HRESULT StartDragging([in] INT x, [in] INT y, [in, defaultvalue(LEFT_BUTTON)] INT nDraggingButton, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers, [in, defaultvalue(TRUE)] BOOL fEnsureVisible);
+    [id(25),helpstring("method StopDragging")] HRESULT StopDragging ([in] INT x, [in] INT y, [in, defaultvalue(DEFAULT_DRAG_SPEED)] INT nSpeedPixelPerSecond);
+    [id(26),helpstring("method MoveMouse")] HRESULT MoveMouse([in] INT x, [in] INT y, [in, defaultvalue(TRUE)] BOOL fEnsureVisible, [in, defaultvalue(DEFAULT_DRAG_SPEED)] INT nSpeedPixelPerSecond);
+    [id(27),helpstring("method MouseWheel")] HRESULT MouseWheel([in] INT nDelta, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers);
+
+    [id(28),helpstring("method Uncheck")] HRESULT Uncheck ([in, defaultvalue(TRUE)] BOOL fVerifyFinalState);
+    [id(29),helpstring("method WaitForReady")] HRESULT WaitForReady();
+    [id(30),helpstring("method BringUp")] HRESULT  BringUp();
+    [id(31),helpstring("method VerifyScreenElement")] HRESULT  VerifyScreenElement([in]BSTR bstrState, [in] BSTR bstrValue);
+    
+    [id(32),helpstring("method FindScreenElementEx")] HRESULT FindScreenElementEx([in] BSTR bstrQueryId, [in] VARIANT *pvarResKeys, [in] INT cResKeys, [out, retval] IScreenElement** ppScreenElement);
+    [id(33),helpstring("method FindAllDescendants")] HRESULT FindAllDescendants([in] BSTR bstrQueryId, [in] VARIANT *pvarResKeys, [in] INT cResKeys, [in] INT nMaxDepth, [out, retval] SAFEARRAY (VARIANT) *foundDescendants);
+    
+    [id(34),helpstring("method WaitForGone")] HRESULT WaitForGone([in] INT nTimeOut, [in] INT nElapse);
+    [id(35),helpstring("method GetClickablePoint")] HRESULT GetClickablePoint([out] INT *x, [out] INT *y);
+    [id(36),helpstring("method IsTextTruncated")] HRESULT IsTextTruncated([out] BOOL* pfIsTruncated, [out] int* pnNumSymbolsFit);
+
+    // defaultvalue(DF_AUTO) means that Playback should define the orientation itself
+    [id(37),helpstring("method SetValueAsSlider")] HRESULT SetValueAsSlider([in] BSTR bstrNewValue, [in, defaultvalue(DF_AUTO)] INT nOrientation);
+
+    [id(38),helpstring("method GetColors")] HRESULT GetColors([out] int *pnTextColor, [out] int *pnBackGroundColor);
+    [id(39),helpstring("method GetBoundingRectangle")] HRESULT GetBoundingRectangle([out] int *pnLeft, [out] int *pnTop, [out] int *pnWidth, [out] int *pnHeight);
+    [id(40),helpstring("method Equals")] HRESULT Equals([in] IScreenElement* pScreenElement, [out, retval] BOOL* pfEquals);
+
+    [id(41), helpstring("method GetPlaybackFlag")] HRESULT GetPlaybackFlag([in] int nPlaybackFlag, [out, retval] VARIANT * pvarPlaybackFlagValue);
+    [id(42), helpstring("method SetPlaybackFlag")] HRESULT SetPlaybackFlag([in] int nPlaybackFlag, [in] VARIANT varPlaybackFlagValue);
+
+    [id(43), helpstring("method MatchesQueryId")] HRESULT MatchesQueryId([in] BSTR bstrQueryId, [out, retval] BOOL* pfMatches);
+
+    [id(44),propget,helpstring("method RunTiemId")] HRESULT  RunTimeId([out, retval] SAFEARRAY (VARIANT) *pRunTimeId);
+};
+
+[
+    object,
+    uuid(C1478314-93FB-4ca8-9554-7D2DAAC0D15A),
+    dual,
+    oleautomation,
+    helpstring("IRPFPlayback Interface"),
+    pointer_default(unique)
+] 
+interface IRPFPlayback : IDispatch 
+{
+
+    typedef enum ThreadWaitReason
+    {
+        ComponentOfTheWindowsNTExecutive1 = 0, 
+        PageToBeFreed = 1, 
+        PageToBeMappedOrCopied = 2,  
+        SpaceToBeAllocatedInThePagedOrNonpagedPool =3, 
+        ExecutionDelayToBeresolved1 = 4, 
+        Suspended1 = 5, 
+        UserRequest1 = 6, 
+        ComponentOfTheWindowsNTExecutive2 = 7, 
+        PageToBefreed = 8, 
+        PageToBemappedOrCopied = 9,
+        SpaceToBeallocatedInThePagedOrNonpagedPool = 10,
+        ExecutionDelayToBeresolved2 = 11, 
+        Suspended2 = 12, 
+        UserRequest2 = 13,
+        EentPairHigh = 14,
+        EventPairLow = 15,
+        LPCReceiveNotice = 16,
+        LPCReplyNotice = 17,
+        VirtualMemoryToBeAllocated = 18,
+        PageToBewrittenToDisk = 19,
+        Reserved = 20
+    }THREAD_WAIT_REASON;
+
+    [id(1),helpstring("method InitPlayBack")] HRESULT  InitPlayBack();
+    [id(2),helpstring("method InitPlayBackForTargetWindow")] HRESULT  InitPlayBackForTargetWindow([in] BSTR bstrMainWindowClass, [in] BSTR bstrMainWindowCaption, [in] BOOL fShowInfoWindow);
+    [id(3),helpstring("method InitPlayBackForTargetProcess")] HRESULT  InitPlayBackForTargetProcess([in] INT nTargetProcessId, [in] INT64 hWndTargetMainWindow, [in] BOOL fShowInfoWindow);
+    [id(4),helpstring("method InitPlayBackForTargetExecutable")] HRESULT  InitPlayBackForTargetExecutable([in] BSTR bstrExecutablePath, [in] BOOL fShowInfoWindow);
+    [id(5),helpstring("method FinishPlayBack")] HRESULT  FinishPlayBack();
+
+    [id(6),helpstring("method FindScreenElementEx")] HRESULT FindScreenElementEx([in] IScreenElement* pScreenElementStart, [in] BSTR bstrQueryId, [in] VARIANT *pvarResKeys, [in] INT cResKeys, [out, retval] IScreenElement** ppScreenElement);
+    [id(7),helpstring("method FindScreenElement")] HRESULT  FindScreenElement([in] BSTR bstrQueryId, [out, retval] IScreenElement** ppScreenElement);
+    [id(8),helpstring("method FindAllScreenElements")] HRESULT  FindAllScreenElements([in] IScreenElement* pScreenElementStart, [in] BSTR bstrQueryId, [in] VARIANT *pvarResKeys, [in] INT cResKeys, [in] INT nMaxDepth, [out] SAFEARRAY (VARIANT) *foundDescendants);
+    [id(9),helpstring("method LeftButtonClick")] HRESULT  LeftButtonClick([in] INT x, [in] INT y, [in, defaultvalue(TRUE)] BOOL fEnsureVisible, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers);
+    [id(10),helpstring("method DoubleClick")] HRESULT  DoubleClick([in] INT x, [in] INT y, [in, defaultvalue(TRUE)] BOOL fEnsureVisible, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers);
+    [id(11),helpstring("method RightButtonClick")] HRESULT  RightButtonClick([in] INT x, [in] INT y, [in, defaultvalue(TRUE)] BOOL fEnsureVisible, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers);
+    [id(12),helpstring("method Expand")] HRESULT  Expand([in, defaultvalue(ECF_USE_TVM_EXPAND | ECF_USE_DOUBLECLICK | ECF_USE_NUMPAD | ECF_USE_ENTER)] INT nExpandCollapseFlag);
+    [id(13),helpstring("method Check")] HRESULT Check([in, defaultvalue(FALSE)] BOOL fSetIndeterminate, [in, defaultvalue(TRUE)] BOOL fVerifyFinalState);
+    [id(14),helpstring("method Collapse")] HRESULT Collapse([in, defaultvalue(ECF_USE_TVM_EXPAND | ECF_USE_DOUBLECLICK | ECF_USE_NUMPAD | ECF_USE_ENTER)] INT nExpandCollapseFlag);
+    [id(15),helpstring("method EnsureVisible")] HRESULT EnsureVisible([in, defaultvalue(EVF_BY_SCROLLING)] int nEnsureVisibleFlag, [in, defaultvalue(-1)] int x, [in, defaultvalue(-1)] int y, [in, defaultvalue(NULL)] IScrollerCallback* pScrollerCallback, [in, defaultvalue(SF_SCROLL_BAR | SF_WHEEL)] int nScrollFlag, [in, defaultvalue(2)] int nMaximumContainers);
+    // defaultvalue(0x2) means SELFLAG_TAKESELECTION
+    [id(16),helpstring("method Select")] HRESULT Select([in, defaultvalue(0x2)] int nSelectionFlag);
+    [id(17),helpstring("method SendKeys")] HRESULT SendKeys([in]BSTR bstrKeys, [in, defaultvalue(HIT)] INT nKeyboardAction);
+    [id(18),helpstring("method SetValueAsComboBox")] HRESULT SetValueAsComboBox([in]BSTR bstrNewValue, [in, defaultvalue(CF_USE_SET_AS_EDIT | CF_USE_SELECT)] INT nSetValueAsComboBoxFlag);
+    [id(19),helpstring("method SetValueAsEditBox")] HRESULT SetValueAsEditBox ([in]BSTR bstrNewValue, [in, defaultvalue(EF_DELETE_CONTENT | EF_USE_SENDKEYS)] INT nSetValueAsEditBoxFlag);
+    [id(20),helpstring("method StartDragging")] HRESULT StartDragging([in] INT x, [in] INT y, [in, defaultvalue(LEFT_BUTTON)] INT nDraggingButton, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers, [in, defaultvalue(TRUE)] BOOL fEnsureVisible);
+    [id(21),helpstring("method StopDragging")] HRESULT StopDragging ([in] INT x, [in] INT y, [in, defaultvalue(DEFAULT_DRAG_SPEED)] INT nSpeedPixelPerSecond);
+    [id(22),helpstring("method MoveMouse")] HRESULT MoveMouse([in] INT x, [in] INT y, [in, defaultvalue(TRUE)] BOOL fEnsureVisible, [in, defaultvalue(DEFAULT_DRAG_SPEED)] INT nSpeedPixelPerSecond);
+    [id(23),helpstring("method MouseWheel")] HRESULT MouseWheel([in] INT nDelta, [in, defaultvalue(NULL)] BSTR bstrKeyModifiers);
+
+    [id(24),helpstring("method Uncheck")] HRESULT Uncheck ([in, defaultvalue(TRUE)] BOOL fVerifyFinalState);
+    [id(25),helpstring("method WaitForReady")] HRESULT WaitForReady();
+    [id(26),helpstring("method VerifyScreenElement")] HRESULT  VerifyScreenElement([in]BSTR bstrState, [in] BSTR bstrValue);
+    [id(27),helpstring("method BringScreenElementUp")] HRESULT  BringScreenElementUp();
+    [id(28),helpstring("method TypeString")] HRESULT  TypeString([in] BSTR bstrKeys, [in, defaultvalue(DEFAULT_TYPING_DELAY)] int nSleepBetweenActions, [in, defaultvalue(FALSE)] BOOL fbLiteral, [in, defaultvalue(HIT)] INT nKeyboardAction);
+
+    [id(29),helpstring("method WaitForScreenElementGone")] HRESULT WaitForScreenElementGone([in] INT nTimeOut, [in] INT nElapse);
+    [id(30),helpstring("method GetClickablePoint")] HRESULT GetClickablePoint([out] INT *x, [out] INT *y);
+
+    [id(31),helpstring("method EnableInfoWindow")] HRESULT  EnableInfoWindow([in] BOOL fEnable);
+    [id(32),helpstring("method EnableEnsureVisibleForPrimitive")] HRESULT  EnableEnsureVisibleForPrimitive([in] BOOL fEnable, [out, retval]BOOL *pfPreviousFlag);
+    [id(33),helpstring("method SetDebugMode")] HRESULT  SetDebugMode([in] INT nDebuggingLevel);
+    [id(34),helpstring("method SetVerificationFlag")] HRESULT  SetVerificationFlag([in] int nVerificationFlag);
+    [id(35),helpstring("method SetRobustnessLevel")] HRESULT  SetRobustnessLevel([in] int nRobustnessLevel);
+    [id(36),helpstring("method SetLoggingFlag")] HRESULT  SetLoggingFlag([in] int nLoggingFlag, [out, retval]int *nPreviousLoggingFlag);
+    [id(37),helpstring("method SetRobustnessLevelEx")] HRESULT  SetRobustnessLevelEx([in] int nRobustnessLevel, [in] BOOL fSystemWide, [in] INT nWaitForReadyMode, [in] BSTR bstrBackGroundThreadStates, [in] BSTR bstrBackGroundThreadWaitReasons, [in, defaultvalue(NULL)] BSTR bstrForeGroundThreadStates, [in, defaultvalue(NULL)] BSTR bstrForeGroundThreadWaitReasons);
+    [id(38),helpstring("method SetSearchTimeOut")] HRESULT SetSearchTimeOut([in] INT nSearchTimeOut, [out, retval]INT *nPreviousSearchTimeOut);
+    [id(39),helpstring("method LockNextSearches")] HRESULT LockNextSearches([in] BOOL bLock);
+
+    [id(40),helpstring("method AddMonitoringInfo")] HRESULT  AddMonitoringInfo([in] IMonitoringWindowsCallback* pMonitoringWindowsCallback);
+    [id(41),helpstring("method StartMonitoringWindows")] HRESULT  StartMonitoringWindows([in] int nElapse);
+    [id(42),helpstring("method StopMonitoringWindows")] HRESULT  StopMonitoringWindows();
+    [id(43),helpstring("method SetCustomLogger")] HRESULT  SetCustomLogger([in] ILoggerCallback* pLoggerCallback);
+    [id(44),helpstring("method LogStep")] HRESULT  LogStep([in]HRESULT hr, [in]BSTR lpstFunction);
+    [id(45),helpstring("method LogInformation")] HRESULT  LogInformation([in] BSTR bstrMessage, [in] BOOL fDeleteFile);
+
+    [id(46),helpstring("method SetClipBoard")] HRESULT  SetClipBoard([in] BSTR bstrClipBoardString);
+    [id(47),helpstring("method GetClipBoard")] HRESULT  GetClipBoard([out, retval] BSTR *pbstrClipBoardString);
+
+    [id(48),helpstring("method TerminateProcessByModuleName")] HRESULT TerminateProcessByModuleName([in] BSTR bstrModuleName, [in] int nExitCode);
+    [id(49),helpstring("method SetTargetProcess")] HRESULT SetTargetProcess([in] INT nTargetProcessId, [out]INT *nCurrentTargetProcessId);
+    [id(50),helpstring("method TerminateTargetProcess")] HRESULT  TerminateTargetProcess([in] int nTargetProcessId);
+    [id(51),helpstring("method BringUpMainWindow")] HRESULT  BringUpMainWindow();
+
+    [id(52),helpstring("method ScreenElementFromPoint")] HRESULT ScreenElementFromPoint([in] INT x, [in] INT y, [out, retval] IScreenElement** ppScreenElement);
+    [id(53),helpstring("method ScreenElementFromWindow")] HRESULT  ScreenElementFromWindow([in] INT64 hWnd, [out, retval] IScreenElement** ppScreenElement);
+    [id(54),helpstring("method ScreenElementFromAccessibleObject")] HRESULT  ScreenElementFromAccessibleObject([in] VARIANT varDisp, [in] VARIANT varChildId, [out, retval] IScreenElement** ppScreenElement);
+    [id(55),helpstring("method ScreenElementFromHTMLElement")] HRESULT ScreenElementFromHTMLElement(IHTMLElement* pIHTMLElement, [out, retval] IScreenElement** ppScreenElement);
+    [id(56),helpstring("method ScreenElementFromWinEvent")] HRESULT ScreenElementFromWinEvent([out, retval] IScreenElement** ppScreenElement);
+    [id(57),helpstring("method StartWaitingForAnyWinEvent")] HRESULT StartWaitingForAnyWinEvent([in] SAFEARRAY (VARIANT) pWinEventsHandles, [in] INT cWinEventHandles);
+
+    // de2aultvalue(DF_AUTO) means that Playback should define the orientation itself
+    [id(58),helpstring("method SetValueAsSlider")] HRESULT SetValueAsSlider([in] BSTR bstrNewValue, [in, defaultvalue(DF_AUTO)] INT nOrientation);
+    [id(59),helpstring("method DumpScreen")] HRESULT DumpScreen([in] BSTR bstrFileName, [in, defaultvalue(DUMP_SCREEN_JPEG)] INT nFileFormat);
+
+    [id(60),helpstring("method WaitForCursor")] HRESULT WaitForCursor([in] INT hInstance, [in] BOOL fWaitForAnyCursor, [in] INT nElapse, [in] INT nTimeOut, [in] SAFEARRAY (INT) pnCursors, [in] INT cCursors);
+    [id(61),helpstring("method GetCurrentCursor")] HRESULT GetCurrentCursor([in] INT hInstance, [out] INT *nCursor);
+
+    [id(62),helpstring("method GetLastFailures")] HRESULT GetLastFailures([out, retval] BSTR* pbstrLastFalures);
+
+    [id(63),helpstring("method ExtractResourceString")] HRESULT ExtractResourceString([in] BSTR resourceKey, [out, retval] BSTR* pbstrResourceString);
+
+    [id(64),helpstring("method SetNextActionDelay")] HRESULT SetNextActionDelay([in] int nDelayTime);
+
+    [id(65),helpstring("method SetCurrentUsers")] HRESULT SetCurrentUsers([in] BSTR bstrCurrentUsers);
+
+    [id(66),helpstring("method SetAccTechnology")] HRESULT SetAccTechnology([in] int nAccTechnology);
+
+    [id(67),helpstring("method EnableUISynchronization")] HRESULT EnableUISynchronization([in] BOOL fEnableUISync);
+    [id(68),helpstring("method GetPlaybackProperty")] HRESULT GetPlaybackProperty([in]int nParam, [out, retval] VARIANT* pVarParamValue);
+    [id(69),helpstring("method SetPlaybackProperty")] HRESULT SetPlaybackProperty([in]int nParam, [in] VARIANT varParamValue);
+    [id(70),propget,helpstring("method PlaybackVersion")] HRESULT PlaybackVersion([out, retval] BSTR *pbstrPlaybackVersion);
+
+    // Native specific methods.  Keep them separate, so the interface in the managed wrapper works correctly
+    [id(71),helpstring("method GlobalizeQueryId")] HRESULT GlobalizeQueryId([in] BSTR bstrQueryId, [in] VARIANT *pvarResKeys, [in] INT cResKeys, [out, retval] BSTR* pbstrGlobalizedQueryId);
+
+    [id(72),propput,helpstring("method TargetLanguageId")] HRESULT TargetLanguageId([in] int nTargetLanguageId);
+    [id(73),propput,helpstring("method TargetLanguageName")] HRESULT TargetLanguageName([in] BSTR bstrTargetLanguageName);
+    [id(74),propput,helpstring("method MUILanguageId")] HRESULT MUILanguageId([in] int nTMUILanguageId);
+    [id(75),propput,helpstring("method ResFilesDirectories")] HRESULT ResFilesDirectories([in] BSTR bstrResFilesDirectories);
+};

@@ -1,0 +1,21 @@
+REGEDIT4
+
+;;
+;; As of February 2005, this file is identical in winmain and dnsrv_r2.
+;; Consider keeping it that way.
+;;
+
+
+;;
+;; sn.reg
+;;
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\StrongName]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,31bf3856ad364e35]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,b03f5f7f11d50a3a]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,b77a5c561934e089]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,e0e73d5e60c20d3c]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,e1e6160fdd198bb1]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,a069dee354d95f76]
+
+

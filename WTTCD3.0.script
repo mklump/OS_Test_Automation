@@ -1,0 +1,64 @@
+# Automated ASICD 3.0 Script File specifies to install a new safe OS on Target Booting Test Machine
+install
+
+# Install Vista Enterprise Client Volume License SKU (uncomment next line if osattribute does not work)
+# /source \\Winbuilds\release\Longhorn_RTM\6001.18000.080118-1840\amd64fre\media\Business_en-us_VL
+#/osattribute 
+#OS:Vista 
+#architecture:amd64 
+#edition:Enterprise 
+#language:EN-US 
+#lab:Longhorn_RTM 
+#quality:Test 
+#license:Volume
+
+# Install Windows Server 2003 (uncomment next line if osattribute does not work)
+# /source \\winseqfe\release\w03\sp2\latest.selfhost\usa\amd64fre\slp\srv
+/osattribute 
+OS:Win2k3 
+architecture:amd64 
+edition:ServerStandard 
+language:EN-US 
+servicepack:2 
+quality:Test 
+type:fre
+
+/osconfig 
+# Use this product lab key for Server 2003 
+productkey:MMPQK-9BTK2-G8FFP-3DFW3-4V248 
+# Use this product site key for Vista Enterprise VL 
+#productkey:VKK3X-68KWM-X2YGT-QR4M6-4BWMV 
+adduser:Administrator,Administrators,Admin#1 
+Autologon:Administrator 
+display:1024,768,32,72 
+asisetup:true 
+remotedesktop:true 
+machinename:%COMPUTERNAME% 
+joindomain:REDMOND,igloolab,%IGLOOLAB_PASSWORD%
+
+# Specifies how to partition the disk.  Partition 1 is 60000 MB.  Partition 2 is 30000 MB. Partition 3 is max size.
+/diskconfig 
+diskpartscript:diskreconfig.script 
+format:0x1,NTFS,TestOS 
+format:0x2,NTFS,SafeOS 
+format:0x3,NTFS,E_Drive 
+installto:0x2 
+bootfrom:0x2
+
+#partition:0,60000,C:,TestOS
+#partition:0,30000,D:,SafeOS
+#partition:0,*,E:,BootVOL
+
+# Add required Hardware Drivers for Dell 745 Desktop test machine and also for Dell Latitude D830 labtop test labtop computers.
+/drivers 
+add:X:\Drivers
+
+# Makes ASI cache the build to the local machine before starting the installation
+#/cachelocal
+
+# Execute Post SafeOS Install actions to make the test machine accessible while ever booted in SafeOS
+/runcommand 
+postinstall:SafeOSPostInstall.cmd
+
+# Make the screen console/screen logger verbose
+/verbose

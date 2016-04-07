@@ -1,0 +1,130 @@
+# Automated CD Script file
+-install
+
+#
+# This command adds all of the prompts for the WTT CD like the wttcontroller, partition information and machinename.
+# This is required for the WTT CD.
+#
+-WTTCD
+
+-WTTINSTALLCLIENT
+
+-WTTCONTROLLER
+B11BGITWTTCT25
+
+#
+# Installs Windows Server 2003 Standard SP2
+#
+-SKU 
+SERVER
+
+-PRODUCT 
+WIN2k3
+
+-LANGUAGE 
+EN-US
+
+-QUALITY 
+RELEASE
+
+-TYPE 
+FRE
+
+-PID 
+DB34T-HF8T9-GMD7P-Q3PYB-JCKF8
+
+# Execute preinstall script
+-PREINSTALL 
+X:\PREINSTALL.CMD
+
+
+#
+# Specifies how to partition the disk.  Partition 1 is max size.  Partition 2 is 1500 MB.
+#
+-DISKPART 
+"Select disk 0, clean, create partition primary size=60000, assign letter=C, create partition primary size=30000, assign letter=D, create partition primary, assign letter=E, exit"
+
+#
+# Set the machine name for the SafeOS of the target machine
+#
+-MACHINENAME 
+^%MACHINENAME^%
+
+#
+# Name partition aliases with specified volume labels
+#
+-PARTITIONNAME 
+TestOS 
+0x1:
+
+-PARTITIONNAME 
+SafeOS 
+0x2:
+
+-PARTITIONNAME 
+E_DRIVE 
+0x3:
+
+#
+# Format partitions
+#
+-FORMATALLPARTITIONS 
+0 
+NTFS
+
+#
+# The partition to install the Safe OS to.  Install to partition 2.
+#
+
+-INSTALLTO 
+0x2:
+
+# Hardware settings
+
+-ADDDRIVER 
+X:\DRIVERS\NETWORK\R161009\WINXP
+
+-ADDDRIVER 
+X:\Drivers\audio\r132379
+
+-ADDDRIVER 
+X:\Drivers\storage\R133527
+
+-ADDDRIVER 
+X:\Drivers\system\r126917
+
+-ADDDRIVER 
+X:\Drivers\video\r131811
+
+-ADDDRIVER 
+X:\Drivers\video\CW766
+
+-DISPLAY 
+1024 
+768 
+32 
+72
+
+# Wire up to corpnet
+
+-AUTOLOGON 
+Administrator
+
+-user
+Administrator
+Admin#1
+Administrators
+
+-user
+redmond\igloolab 
+^%IGLOOLAB^% 
+Administrators
+
+-REMOTEDESKTOP
+
+-JOINDOMAIN 
+REDMOND\igloolab 
+REDMOND 
+^%IGLOOLAB^%
+
+

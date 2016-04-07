@@ -1,0 +1,2 @@
+REM Start the Visual Studio 2005 Remote Debugger
+start /D "\\mattktest\Recorder_Playback_Framework\Visual Studio 2005 Debugger\Remote Debugger x86\x86" /B /I msvsmon.exe /name:debugger /allow:REDMOND\a-maklum /nosecuritywarn

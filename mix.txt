@@ -1,0 +1,65 @@
+asi.exe -WTTPREP -installto C: -> Prepares a client for use with WTT with C: as the default TestOS partition.
+asi.exe -SAVEDEFAULTS mymachineinfo.txt -> Writes machine defaults to mymachineinfo.txt in text format.
+asi.exe -INSTALL -SWAPACTIVE 0x3: -> Swaps the active partition to Disk 0, Partition 3 before initiating the install. Please use this as an addtional command line option when reinstalling the safeOS. The sequence should be 1) Select WTT setup with safeOS, 2) Select Server 2003 SafeOS, 3) Select Advanced setup, 4) Select Yes to wipe all drives, 5) Select NO to install with ASIUI, 6) Enter -SWAPACTIVE 0x3: for extra command line options
+asi.exe -unregister -> Unregisters client machine's install default settings and install credentials
+
+Safe OS ASI2.2 setup command set ->
+set /p MACHINENAME="Please enter machine name: -> "
+set /p IGLOOLAB_PASSWORD="Please enter REDMOND\igloolab password: -> "
+
+echo Safe OS ASI2.2 setup command set
+asi.exe -install -MACHINENAME DEPLAB08_S -WTTCD -SKU ENTERPRISE -LANGUAGE EN-US -PLATFORM amd64 -QUALITY TEST -LAB MAIN -PRODUCT VISTA -TYPE FRE -AUTOLOGON Administrator -USER Administrator "" Administrators -DISPLAY 1024 768 32 72 -JOINDOMAIN igloolab REDMOND Jan-11polaris -FORMATDISK D: -INSTALLTO D: -SWAPACTIVE D: -WTTINSTALLCLIENT -WTTCONTROLLER B11BGITWTTCT25 -DISKPART "Select disk 0, clean, create partition primary size=60000, assign letter=C, create partition primary size=40000, assign letter=D, create partition primary, assign letter=E, exit" -POSTINSTALL \\wexfs\USERS\a-maklum\edrive\OSPostInstall.cmd
+
+Test OS ASI2.2 setup command set -> 
+asi.exe -REGISTER AUTHENTICATE -SKU Starter -LANGUAGE ps-ps -PLATFORM x86 -LAB WINMAIN -PRODUCT WIN7 -BLOCK SERVICEPACK -TYPE FRE -MACHINENAME [Current_no_s] -USER Tester Admin#1 Administrators -AUTOLOGON Tester -USER Administrator Admin#1 Administrators -REMOTEDESKTOP -DISPLAY 1024 768 32 72 -FORMATDISK C: -INSTALLTO C: -SWAPACTIVE C: -ADDDRIVER \\wexfs\USERS\a-maklum\edrive\Drivers\Dell745TestDesktopPCs
+asi.exe -REBOOT D:
+asi.exe -install -WTTINSTALLCLIENT -WTTCONTROLLER B11BGITWTTCT25
+
+TestOS ASI3.0 last install command ->
+asicmd.exe register /server b11bgitwttct25 /user REDMOND\igloolab /password Jan-11polaris
+asicmd.exe install /OSAttribute edition:Enterprise language:en-us architecture:amd64 os:VISTA lab:MAIN /osconfig machinename:B10-18 adduser:WEXTester,Administrators,"" adduser:LocalAdmin,Administrators,"" Autologon:Administrator adduser:Administrator,Administrators,"" asisetup:true display:1024,768,32,72 /diskconfig format:C:,NTFS,C_Drive installto:C: /verbose
+
+Check out http://shellchef/access for the new SHUPLAB password.  Note: The webpage will be updated shortly.
+You can update your SAFE_OS machines by booting into the SAFE_OS and running \\shellchef\public\tools\tc\updatepass.bat
+If you have any questions, please let me know.
+Thanks,
+Ken
+
+NTDEV\shuplab Shfrrup20
+
+
+Current WINDOWS 7 build set to install is 6965  from WINMAIN_WIN7BETA CHECK builds only
+
+## OSEdition	   Language	Architecture
+01 Pro_Enterprise  ps-ps	amd64 DEPLAB02_S
+02 Home	   	   ps-ps	x86   DEPLAB04_S
+03 Ultimate	   en-us	amd64 DEPLAB05_S
+04 Home		   en-us	amd64 DEPLAB06_S
+05 Home_Premium	   ar-sa	x86   DEPLAB11_S
+06 Pro_Enterprise  en-us	x86   DEPLAB12_S
+07 Ultimate	   ps-ps	x86   DEPLAB21_S
+08 Business	   ps-ps	amd64 DEPLAB22_S
+09 Starter	   ar-sa	x86   DEPLAB25_S
+10 Business	   en-us	x86   DEPLAB35_S
+11 Pro_Enterprise  ar-sa	amd64 DEPLAB36_S
+12 Starter	   ps-ps	x86   DEPLAB37_S
+13 Home	   	   ar-sa	x86   DEPLAB38_S
+14 Home_Premium	   en-us	amd64 DEPLAB39_S
+15 Business	   ar-sa	x86   DEPLAB41_S
+16 Home_Premium	   ps-ps	x86   DEPLAB43_S
+17 Starter	   en-us	x86   DEPLAB44_S
+18 Ultimate	   ar-sa	x86   DUALSOCK1_S
+
+
+	
+
+Run WEX workflow 35 with to following Workflow Parameters shown below (B11BGITWTTCT25\$\WEX\ workflow 35):
+1) Language = ENGLISH or PSEUDO-LOCALIZED
+2) OsBinRoot =  [See Product Path Derived Path] example \\winbuilds\release\winmain\7003.0.081125-1725\x86fre
+3) ProductBuildType = amd64fre or x86fre
+4) ProductPath = \\winbuilds\release\winmain_win7beta\6961.0.081201-1840\x86fre\media\client_ar-sa
+[amd64fre\ps-ps or x86fre\ps-ps or amd64fre\en-us or x86fre\en-us]
+5) Sku = Ultimate, Pro_Enterprise, Business, HomeBasic (or just Home if HomeBasic fails), Home_Premium, Starter
+6) TestBinRoot = [See Product Path Derived Path], example \\winbuilds\release\winmain\7003.0.081125-1725\x86fretest\bin
+
+Please remember to uncheck "Verify Unattend Settings" stage in the DTW 35 "OS deployment" workflow everytime it is about to be scheduled for instantiation. Also please uncheck "Enterprise SKU - Volume_GVLK PKey - WEXSAST BVT- EULA Verification", and also "All SKU minus Enterprise - WEXSAST BVT- EULA Verification" before creating/scheduling an instance of this workflow.

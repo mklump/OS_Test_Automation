@@ -1,0 +1,6 @@
+list volume
+select disk 0
+select volume D:
+active
+list volume
+exit
